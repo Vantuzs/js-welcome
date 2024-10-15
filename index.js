@@ -1,42 +1,48 @@
-let box1 = 'Hello';
+//  перетворення (приведення) типу данных
 
-let box2; // undefined
-box2 = 15;
 
-const secretWord = 'superSecret!Kyivstar!Cybersecuruti';
-// console.log(secretWord);
+//  перетворення типу данных - коли значення зминюе тип данных з одного на инший
+// Иснуе 2 види перетворення данных: явне и неявне
 
-// secretWord = 'wordd'; // <<-- перевизначить константу невозможно!!! 0о0
+// неявне перетворення типив(implicit type conversion)
+let num = 6 - '1';
 
-// console.log(box2); // не виконаеться через помилку на рядку 9
+console.log(num);
 
-let result1 = 1 + 2; // 3
-// console.log(result1);
-let result2 = 3 - 2; // 1 
-// console.log(result2);
-let result3 = 2 * 2; // 4
-console.log(result3);
-let result4 = 4 / 2;
-//console.log(result4); // 2
+// явне перетворення типив (explisit type conversion)
+// (приведення типив)
 
-let result5 = 0.1 + 0.2;
-console.log(result5);
+let thisIsNumber = Number('45');
 
-let notAllowed = 10 / 0;
-//console.log(notAllowed); // Infinity-бесконечность
+// boolean автоматично приводиться до типу Number при арефметических расчетах
+// true -> 1
+// false -> 0 
 
-let brrrr = 10 / 'hello world';
-console.log(brrrr); // NaN 
-// NaN - Not a Number -->>> операция, неприпустима с точки зору математики
+let booleanNumber = true + 1;  // 1 + 1 = 2
+console.log(booleanNumber); // 2
 
-// +
-// складае числа 
-// склеивает строки (конкатенация)
-let newLine = 'Hello' + 'world';
-// console.log(newLine);
+// String
 
-newLine = 5 + 'hello'
-// console.log(newLine);
+let thisIsString = String(45); // '45'
+console.log(thisIsString);
 
-newLine = '1' + 1;
-console.log(newLine); // 11
+let testString = null +''; // неявное преведення до string
+console.log(testString);
+
+// явне приведення типов лутше за неявне
+let test = 15 - Number('17');
+console.log(test);
+
+// NaN - Not-a-Number
+let notANumber = 2 * 'hello'; // приведення типов неможливе -> некоректна математична операция -> NaN
+console.log(notANumber);
+
+// () - оператор виклику функции
+// математични операторы (+,-,*,/)
+// оператор конкатенации
+
+// оператор typeof - дозволяе отримати тип данных операнда 
+let box = true;
+console.log(typeof box);
+
+
