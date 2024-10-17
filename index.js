@@ -27,13 +27,14 @@ if( умова №1){
 
 */
 
-const r =  5;
+const r =  ;
+let strWithR = 'r = ' + r;
 if(r>=12){
-    console.log('r>=12');
+    console.log(strWithR + ', r>=12');
 }
 else if(r<=5){
-console.log('r<=5');
+console.log( strWithR + ', r<=5');
 }
 else {
-    console.log('r>5 and r<12');
+    console.log( strWithR + ', r>5 and r<12');
 }
