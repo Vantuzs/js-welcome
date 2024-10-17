@@ -1,4 +1,25 @@
-const a = 10;
-const b = 5;
-const c = a*b;
-console.log('Ploshad priamokutnika ' + c );
+/*
+
+1/ создать переменный
+а = 3;
+b = 6;
+n = 8;
+
+2. Если b - парное (Четное) тогда n увеличить на 5, в другом случае переменную а сделать 15
+3. Вывести на консоль
+
+*/
+
+let a = 3;
+let b = 6;
+let n = 8;
+
+if( b%2 ===0  ) {
+    n+=5;
+    console.log(n);
+}
+
+else{
+    a=15;
+    console.log(a);
+}
