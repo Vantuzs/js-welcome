@@ -27,7 +27,7 @@ if( умова №1){
 
 */
 
-const r =  ;
+const r =  2;
 let strWithR = 'r = ' + r;
 if(r>=12){
     console.log(strWithR + ', r>=12');
