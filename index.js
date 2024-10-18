@@ -45,9 +45,9 @@ else { console.log('ОШИБКА      ОШИБКА');}
 
 */
 
-const god = 1996;
+const god = 2012;
 
-if(god%4===0 && !god%100===0 || god%400===0){
+if(god%4===0 && god%100 !==0 || god%400===0){
     console.log(god + ' Это высокостный год');
 } else {
     console.log(god + ' Это не высокосный год');
@@ -86,4 +86,25 @@ if(uchasniki<=ruchki && uchasniki<=bloknot){
     console.log('good');
 } else if(ruchki<uchasniki || bloknot<uchasniki){
     console.log('unluck');
+}
+
+const age = 13;
+const hasDisconde = true;
+
+let ticketPrice;
+
+if(age < 0 || typeof age !== 'number') {
+    console.log('Вы ввели некоректный возраст');
+} else if(age <=6) {
+    ticketPrice = 0;
+} else if(age <= 12) {
+    ticketPrice = 10;
+} else if(!hasDisconde){
+    ticketPrice = 20;
+} else {
+    ticketPrice = 10
+} 
+
+if(ticketPrice !== undefined) {
+    console.log('Цена билета составаляет ' + ticketPrice + '$');
 }
