@@ -1,51 +1,78 @@
-// Функции (Functions) 
-// Функция (подпрограма(Старая назва)) - блок кода, который выполняет певни действия при виклику.
-// Функция может принимать аргументы - значения, которые передаются в функцию. Функция может использовать аргуманты в своей работе.
-// Функции моожет возвращать значение(а может и не возвращать)
-// Функция - фрагмент програмного кода, до которого можно обратиться с другого места програмы
+/*
 
-/*Синтаксиз фунции
+Об явлена функция - Function Declaration
 
-Как огласить функцию?
-
-function имяФункции(аргумент1, аргумент2,){
-    Тело функции 
+function имяФункции(аргумент1,аргумент2) {
+    Тело функции
 }
+
+имяФункции(аргумент1, аргумент2);
+
+
+hoisting - оголошення функции поднимаеться (hoisted) до верхней части кода
+
+*/
+greetungUser('James');
+
+function greetungUser(userName){  
+        console.log('Hi, ' + userName);
+}
+
+greetungUser('Alex');
+
+/*
+
+Function Expression - Функциональный вираз 
+
+const имяФункции = function(arg1, arg2){
+    Тело функции
+}
+
+имяФункции(аргумент1, аргумент2);
+
 
 */
 
-// Задача: написати функцию, которая будет принимать имя пользователя:строка И будет приветствоватся с этим пользователем
+// greet('Test'); Приведет до ошибки 
 
-function greetungUser(userName){  
-    // userName - абстракция, на который мы завязываем логику роботы функции
-    // userName - формальный параметрdobavlenie(12);
-        console.log('Hi, ' + userName);
-}
-// Использование функции
-// Параметры, которые вы передаете при вызове функции - фактические параметры
-greetungUser('Alex'); // 'Alex' - aргумент функции, фактический параметр
-greetungUser('Vova'); // 'Vova' фактический параметр
-greetungUser('Ivan'); // 'Ivan' фактический параметр
-
-// Задача: Создайте функцию, которая принимает число, добовляет до него 5 и выводит результат в консоль
-
-function addFiveToNumber(chislo){
-    let result = Number(chislo) + 5;
-    console.log(result);
-    return result;
+const greet = function(userName){
+    console.log('Hi, ' + userName);
 }
 
- const addFiveToNumberResult = addFiveToNumber(5);
+greet('Kevin');
 
 
-// Задача написать функцию, которая складае два числа и возвращает результат розрахунку
+/* 
 
-function addTwoNumbers(num1, num2){
-    console.log('Hi from finction');
-    const result = num1 + num2;
-    return result;
+Arrow Function - Стрелочная функция
+
+const имяФункции = (arg1, arg2) =>{
+        Тело функции
+    }
+
+имяФункции(аргумент1, аргумент2);
+
+hosting - не видбуваеться
+
+*/
+
+// greetArrow('Test');  Приведет к ошибке
+
+const greetArrow = (userName) => {
+    console.log('Hi, ' + userName);
 }
 
-const addTwoNumbersResult = addTwoNumbers(5, 5);
-            // 10                   10
-console.log(addTwoNumbersResult + addFiveToNumberResult);
+greetArrow('Jo');
+
+// Задача: написать функцию которая выводит системную дату и час(поточные)
+
+
+
+// ДЛЯ ТЕХ, КТО ХОЧЕТ ЗНАТЬ БОЛЬШЕ!!!!!!!!!!!!!!!!!!!!!!
+const getDeteWithTime = function(){
+    // круглые скобки - когда нам не нужны параметры
+    // параметры нам не нужны, когда работа фуенкции не зависит от какогото внешнего значения
+    const dateWithTime = new Date();
+    return dateWithTime;
+}
+
