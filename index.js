@@ -1,16 +1,79 @@
-// console.log();
-// alert('Hello');
-// const greeting = 'Hello, '
-let firstOperand = Number(prompt('Введите первое число ')); // '5' --> Number('5') -- 5:number
-let secongOperand = Number(prompt('Введите второе число ')); // '10'  --> Number('10') -- 10:number
+// Зад. 1
+// 1
+const a = 12;
+const b = 2;
 
- // Это актуально до яваного приведения prompt к Number --->>>>           // '5' * '10' (крч джаваскрипс такой пришел, посмотрел что мы хотим умножить строчку на строчку, подумал что за х****я, убрал кавычки'', посмотрел что это выглядит как цифры-числа, и смог решить задачку поменяв строчку на числа)
-// console.log(firstOperand*secongOperand);
+console.log(a*b);
 
-let result = firstOperand + secongOperand;
+//2
 
-if(Number.isNaN(result)){ // Number.isNaN(result) === true
-    console.log('Ты не прав, введи число!');
-} else{
-    console.log(result);
-}
+const c = 10;
+const d = 5;
+
+console.log(c/d);
+
+//3
+
+const e = 20;
+const f = 30;
+
+console.log(e+f);
+
+//4 
+
+const number = 11;
+const boolean = false;
+const text = 'java script';
+const textNumber = '100';
+
+console.log(number);
+console.log(boolean);
+console.log(text);
+console.log(textNumber);
+
+//5 
+
+let num =1;
+
+console.log(num += 11);
+
+console.log(num -= 11);
+
+console.log(num *= 11);
+
+console.log(num /= 11);
+
+console.log(++num);
+
+console.log(--num);
+
+
+
+// Зад.2
+
+//1
+
+const square = Number(prompt('Введите число и мы поднесём его в квардрат: '));
+
+alert(square**2 + ' = ' + square + ' в квадрате');
+
+//2
+
+const one = Number(prompt('Введите 1 число: '));
+const two = Number(prompt('Введите 2 число: '));
+
+alert((one+two)/2 + ' - Среднее арефмитическое ' + one + ' и ' + two);
+
+// 3
+
+const min = Number(prompt('Введите количество минут:'))
+
+alert(min*60 + ' - секунд в ' + min + ' минутах')
+
+
+//4 
+
+const greeting = 'Hello,';
+const userName = prompt('Введите свое имя')
+
+alert(greeting + userName)
