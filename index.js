@@ -18,7 +18,7 @@ function имяФункции(аргумент1, аргумент2,){
 
 function greetungUser(userName){  
     // userName - абстракция, на который мы завязываем логику роботы функции
-    // userName - формальный параметр
+    // userName - формальный параметрdobavlenie(12);
         console.log('Hi, ' + userName);
 }
 // Использование функции
@@ -26,3 +26,26 @@ function greetungUser(userName){
 greetungUser('Alex'); // 'Alex' - aргумент функции, фактический параметр
 greetungUser('Vova'); // 'Vova' фактический параметр
 greetungUser('Ivan'); // 'Ivan' фактический параметр
+
+// Задача: Создайте функцию, которая принимает число, добовляет до него 5 и выводит результат в консоль
+
+function addFiveToNumber(chislo){
+    let result = Number(chislo) + 5;
+    console.log(result);
+    return result;
+}
+
+ const addFiveToNumberResult = addFiveToNumber(5);
+
+
+// Задача написать функцию, которая складае два числа и возвращает результат розрахунку
+
+function addTwoNumbers(num1, num2){
+    console.log('Hi from finction');
+    const result = num1 + num2;
+    return result;
+}
+
+const addTwoNumbersResult = addTwoNumbers(5, 5);
+            // 10                   10
+console.log(addTwoNumbersResult + addFiveToNumberResult);
