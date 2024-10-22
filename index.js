@@ -1,41 +1,67 @@
-// Задача1. написать функцию, которая принимает 2 числа и возвращает то число, что больше
+const num1 = Number(prompt('Введите 1 число:'));
+const num2 = Number(prompt('Введите 2 число'));
 
-const value1 = Number(prompt('Введите 1 число:'));
-const value2 = Number(prompt('Введите 2 число'));
+//  Задача: написать функицию, которя принимает 2 числа и додае их
 
-const getBigger = function(num1, num2){ // num1, num2 - формальные параметры
-    if(typeof num1 !== 'number' || typeof num2 !== 'number') {
-        console.log('Мы ждем числа!');
-    } else if(num1>num2){
-        return num1;
-    } else {
-        return num2;
-     }
+function addTwoNumbers(arg1, arg2){
+    console.log(num2);
+    return arg1+arg2;
 }
 
-console.log(getBigger(value1, value2)); // value1, value2 - фактические парметры
+let result = addTwoNumbers(num1, num2);
+
+console.log(result);
 
 
-const chislo1 = Number(prompt('Введите 1 число:'));
-const chislo2 = Number(prompt('Введите 2 число:'));
+// Область видимости - визначення доступности и видимости переменных и функций в певниз частинах коду
 
-const middleArifmetic = function(num1, num2){
-    // let average = (num1+num2)/2;
-    // return average;                это тоже легал способ
-    return (num1+num2)/2;    
+/*  в JS существует 2 основные области видимости:
+
+1. Глобальная область видимости - глобально область видимости обхватывает весь документ (програму)
+
+
+*/
+
+const globalVarialble = 10;
+
+function globalFunction(){
+    // тело функции
 }
- 
-console.log(middleArifmetic(chislo1, chislo2));  // я в ахуе что так можно=3
 
-const number1 = Number(prompt('Введите 1 число:'));
+console.log(globalVarialble); // 10
 
-function isEven(num1){
-    if(num1%2 === 0){
-        console.log('СоСи ХуЙ');
-        return
-    } else {
-        return false;
+// 2. Локальная область видимости - определяеться блоками кода (фигурные скобками)
+
+function testFunction(num1){
+    const localVariable = 20; // Локальная переменная testFunction
+    if(true){
+        const  innerVariable = 30; // Локальная переменная if
+        console.log(innerVariable); // 30
+        console.log(localVariable); // 20 , localVariable - находиться в глобальной области видимости по отношению до if
+        console.log(globalVarialble); // 10 , globalVariable - находиться в глобальной области видимости по отношению до if
     }
+
+    console.log(localVariable); // 20
+    // console.log(innerVariable); // Error - патамушта эта переменная живет в if, и ее не видно от сюда
 }
 
-isEven(number1);
+testFunction();
+
+// console.log(localVariable); // Ошибка: localVariable недоступтна тут =(
+
+// 3. Функциональная область видимости - визначае область видимости, за якои все переменные доступтные всередине фукнций, незалежно от блоков, которых они оголошени
+// (var) 
+
+
+// Summary
+/*
+
+Scope - область видимости
+(это все наши переменные, обьекты и тд., которые нам доступтны)
+
+Local Scope (локальная область видимости) - это все наши переменные, обьекты и тд., ВСЕРЕДИНЕ нашей фукнции
+
+Global Scope (глобальная область видимости) - это все наши переменные, обьекты и тд., с поточного коду
+
+
+*/
