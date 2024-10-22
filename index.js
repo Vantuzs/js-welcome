@@ -1,78 +1,41 @@
-/*
+// Задача1. написать функцию, которая принимает 2 числа и возвращает то число, что больше
 
-Об явлена функция - Function Declaration
+const value1 = Number(prompt('Введите 1 число:'));
+const value2 = Number(prompt('Введите 2 число'));
 
-function имяФункции(аргумент1,аргумент2) {
-    Тело функции
+const getBigger = function(num1, num2){ // num1, num2 - формальные параметры
+    if(typeof num1 !== 'number' || typeof num2 !== 'number') {
+        console.log('Мы ждем числа!');
+    } else if(num1>num2){
+        return num1;
+    } else {
+        return num2;
+     }
 }
 
-имяФункции(аргумент1, аргумент2);
+console.log(getBigger(value1, value2)); // value1, value2 - фактические парметры
 
 
-hoisting - оголошення функции поднимаеться (hoisted) до верхней части кода
+const chislo1 = Number(prompt('Введите 1 число:'));
+const chislo2 = Number(prompt('Введите 2 число:'));
 
-*/
-greetungUser('James');
-
-function greetungUser(userName){  
-        console.log('Hi, ' + userName);
+const middleArifmetic = function(num1, num2){
+    // let average = (num1+num2)/2;
+    // return average;                это тоже легал способ
+    return (num1+num2)/2;    
 }
+ 
+console.log(middleArifmetic(chislo1, chislo2));  // я в ахуе что так можно=3
 
-greetungUser('Alex');
+const number1 = Number(prompt('Введите 1 число:'));
 
-/*
-
-Function Expression - Функциональный вираз 
-
-const имяФункции = function(arg1, arg2){
-    Тело функции
-}
-
-имяФункции(аргумент1, аргумент2);
-
-
-*/
-
-// greet('Test'); Приведет до ошибки 
-
-const greet = function(userName){
-    console.log('Hi, ' + userName);
-}
-
-greet('Kevin');
-
-
-/* 
-
-Arrow Function - Стрелочная функция
-
-const имяФункции = (arg1, arg2) =>{
-        Тело функции
+function isEven(num1){
+    if(num1%2 === 0){
+        console.log('СоСи ХуЙ');
+        return
+    } else {
+        return false;
     }
-
-имяФункции(аргумент1, аргумент2);
-
-hosting - не видбуваеться 
-
-*/
-
-// greetArrow('Test');  Приведет к ошибке
-
-const greetArrow = (userName) => {
-    console.log('Hi, ' + userName);
 }
 
-greetArrow('Jo');
-
-// Задача: написать функцию которая выводит системную дату и час(поточные)
-
-
-
-// ДЛЯ ТЕХ, КТО ХОЧЕТ ЗНАТЬ БОЛЬШЕ!!!!!!!!!!!!!!!!!!!!!!
-const getDeteWithTime = function(){
-    // круглые скобки - когда нам не нужны параметры
-    // параметры нам не нужны, когда работа фуенкции не зависит от какогото внешнего значения
-    const dateWithTime = new Date();
-    return dateWithTime;
-}
-
+isEven(number1);
