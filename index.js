@@ -1,45 +1,87 @@
 /*
 
-High Order Function (HOF, Функция высшего порядка) - 
-функция, которя принимает другою функцию в качесве аргумента
+Розробити алгоритм, который будет отображать режим нашего дня
 
+Нужно розробити функцию, которая принимает ту или иную пору дня (утро, обед, ужин)
+ и выполняет те или иные действия,которые мы выполняем в указанною пору дня
 
 */
 
-function calculator(num1, num2, functionLink){ // HOF
-  let result = functionLink(num1,num2);
-  return result;
-} 
-                      //num1    //num2      //functionLink
-console.log( calculator(5,        5,          sum)); // sum - посылание на функцию
-
-// Используя калькулятор, поднесите число 1 в степень числа 2
-console.log( calculator(3, 2, function (a, b) { // callback
-  return a**b;
-}));
-
-
-function sum(a, b) {
-  return a + b;
+function todo(timeOfDay){ // HOF
+  // morning - список справ на ранок
+  // lunch - список дел на обед
+  // evening - список дел на вечер
+  switch(timeOfDay){
+    case 'morning':{
+      brushingTeeth();
+      skincare();
+      breakfast();
+      break;
+      
+    }
+    case 'lunch':{
+      goToOffice();
+      coding();
+      lunch();
+      coding();
+      break;
+    }
+    case 'evening':{
+      education();
+      coding;
+      goToHome();
+      shower();
+      brushingTeeth();
+      skincare();
+      sleep();
+      break;
+    }
+    default:{
+      console.log('Ошибка! Такова времени суток не расчитывалось=(');
+    }
+  }
 }
 
-function substract(a, b) {
-  return a - b;
+todo('evening')
+
+
+
+function brushingTeeth(){
+  console.log('brushing teeth');
 }
 
-function multy(a, b) {
-  return a * b;
+function skincare(){
+  console.log('skincare');
 }
 
-function divide(a, b) {
-  return a / b;
+function breakfast(){
+  console.log('breakfast');
 }
-/*
 
-High Order Function(HOF, Функция высшего порядка) - 
-функция, которя принимает другою функцию в качесве аргумента 
+function goToOffice(){
+  console.log('goToOffice');
+}
 
-Callback - Колбек (Функция зворотньго виклику),
-функция, ЯКУ мы передали как агрумент при вызове другой фукнции
+function coding(){
+  console.log('coding');
+}
 
- */
+function lunch(){
+  console.log('lunch');
+}
+
+function education(){
+  console.log('education');
+}
+
+function goToHome(){
+  console.log('Go to home');
+}
+
+function shower() {
+  console.log('shower');
+}
+
+function sleep(){
+  console.log('sleep');
+}
