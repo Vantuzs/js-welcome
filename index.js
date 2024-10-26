@@ -32,20 +32,36 @@ for(let i = 0; i < 10; i+=3){ // 0 -> 3 -> 6 -> 9 -> 12 (false)
 */
 
 
-const number = prompt('Введите число которое хотите возвести в факториал')
+// const number = prompt('Введите число которое хотите возвести в факториал')
 
-function factorial(num1){
-  let res=1; // В этой переменной мы будем накапливать добуток
-  if(num1=== 0 || num1 === 1){
-    return null;
-  } else if (num1<0){
-    return 1;
-  } else{
-    for(let i = 1;i<=num1;i++){
-      res = res * i;
-    }
-  }
-  return res;
-}
+// function factorial(num1){
+//   let res=1; // В этой переменной мы будем накапливать добуток
+//   if(num1=== 0 || num1 === 1){
+//     return null;
+//   } else if (num1<0){
+//     return 1;
+//   } else{
+//     for(let i = 1;i<=num1;i++){
+//       res = res * i;
+//     }
+//   }
+//   return res;
+// }
 
-console.log(factorial(number));
+// console.log(factorial(number));
+
+
+
+
+
+
+
+
+
+// let res = 0
+// for(let i=1 ; i<=100;i++){
+//   res = res+i;
+// }
+
+// console.log(res);
+
