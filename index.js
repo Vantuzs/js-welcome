@@ -1,42 +1,30 @@
 /*
 
-Задача1
+Задача 2 
 
-числа - из диапазона вывести все числа%5===0
+Написать игру FizzBuzz для 100 чисел
+
+Начинайм с 1, потом это число поступительно инкрементуэтся.
+Если участник понимает что число делиться на 3 - гравець каже Fizz
+Если число делится на 5 - гравець каже Buzz
+если делиться одновременно и на 3 и на 5 - FizzBuzz
+Если не делиться ни на 3 ни на 5 - просто называет это число
 
 */
 
-//1
 
-// function printNumberDevisibleBy5(start, end){
-//   for(let i = start; i<=end;i++){
-//     if(i%5===0){
-//       console.log(i);
-//     }
-//   }
-
-// }
-
-// printNumberDevisibleBy5(5,25)
-
-
-
-// v2 - variant maximum
-
-function count() {
-    let numberOne = Number(prompt('Введите число один'));
-    let numberTwo = Number(prompt('Введите число Two'));
-    if(numberOne>numberTwo){
-        console.log('Початкове число должно быть меньше за последнее число');
-        return; // досрочный выход из цикла
-    }
-    
-    for(let i= numberOne; i<=numberTwo; i++ ){
-        if(i%5===0){
-            console.log(i);
+function FiizBuzzGame(limit){
+    for(let i = 1;i<=num1;i++){
+        if(i%5===0 && i%3===0){
+            console.log(i + ' FizzBuzz');
+        } else if(i%5===0){
+            console.log(i + ' Buzz');
+        } else if(i%3===0){
+            console.log(i + ' Fizz');
         } else {
-            console.log('Число ' + i + ' не кратное 5');
+            console.log(i);
         }
     }
 }
-count()
+
+FiizBuzzGame(100);
