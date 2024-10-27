@@ -1,35 +1,49 @@
 /*
 
-Задача 2 
+Обекты 
 
-Написать игру FizzBuzz для 100 чисел
+const названиеОбьекта = {
+    ключ: значення,
+}
 
-Начинайм с 1, потом это число поступительно инкрементуэтся.
-Если участник понимает что число делиться на 3 - гравець каже Fizz
-Если число делится на 5 - гравець каже Buzz
-если делиться одновременно и на 3 и на 5 - FizzBuzz
-Если не делиться ни на 3 ни на 5 - просто называет это число
+Обьекты имеют:
+-Властивости
+- Методы
 
 */
-//qqqqq
+
+const obj = {
+    color: 'red',
+    fontSize: 2
+}
+
+// ООП - Парадигма програмування, которая дозволяет создавать прогрмамы с использованием обьектов, которые имеют властивости и методы
 
 
+// Задача: опишите обьект лампочки
 
-
-
-function FiizBuzzGame(limit){
-    for(let i = 1;i<=num1;i++){
-
-        if(i%5===0 && i%3===0){
-            console.log(i + ' FizzBuzz');
-        } else if(i%5===0){
-            console.log(i + ' Buzz');
-        } else if(i%3===0){
-            console.log(i + ' Fizz');
-        } else {
-            console.log(i);
-        }
+const bulb = {
+    lightness: 200,
+    power: '200w',
+    cap: 'small',
+    on: function(){
+        return 'The light on!'
+    },
+    off: function(){
+        return 'The light off!'
     }
 }
 
-FiizBuzzGame(100);
+console.log( bulb.power);
+console.log( bulb.on());
+console.log(bulb.off());
+
+const dog = {
+    name: 'Tuzik',
+    'favorite food': 'meat',
+
+}
+
+console.log(dog.name);
+
+console.log(dog['favorite food']);
