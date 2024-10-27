@@ -1,67 +1,45 @@
-/*
+//1
 
-for
+let result = 0;
 
-for(начальный стан; умова, за которой цикл повторюэться; пермена личильника на каждой итерации){
-  Блок кода, который повтоятся
+for (let i = 1; i <= 10; i++) {
+  result = i;
+  result = Math.pow(result, 2);
+  console.log(result);
 }
 
-Початковий стан - початкове значення для личильника
+//2
 
-*/
+const truePasswor = "qwe123";
+let password = prompt("Введите пароль");
 
-// Задача: вывести 10 консоль.логов
-
-for(let i = 0; i < 10; i+=3){ // 0 -> 3 -> 6 -> 9 -> 12 (false)
-  console.log(i);
+for (; password !== truePasswor; ) {
+  password = prompt("Вы ввели не верный пароль");
 }
 
+console.log("Вы успешно вошли");
 
-/*
+//3
+let res = 0;
+for (let i = 1; i <= 100; i++) {
+  res = res + i;
+}
 
-Задача: написать фукнцию, которая обчисляет факториал переданного ей числа, результат роботы фукнции вывести на консоль
+console.log(res);
 
-Факториал - це 
-5! = 1*2*3*4*5
-10! = 1*2*3*4*5*6*7*8*9*10
+//4
 
-Если число отрицательное - верните с фукнции ошибку
-Если число = 0, или = 1 верните с функции 1
-Находим факториал...=)
+for (let i = 10; i <= 50; i++) {
+  if (i % 5 === 0) {
+    console.log(i);
+  }
+}
 
-*/
+// 5
+const value = prompt("Введите высоту и ширину треугольника 1 числом");
+let symvol = "";
 
-
-// const number = prompt('Введите число которое хотите возвести в факториал')
-
-// function factorial(num1){
-//   let res=1; // В этой переменной мы будем накапливать добуток
-//   if(num1=== 0 || num1 === 1){
-//     return null;
-//   } else if (num1<0){
-//     return 1;
-//   } else{
-//     for(let i = 1;i<=num1;i++){
-//       res = res * i;
-//     }
-//   }
-//   return res;
-// }
-
-// console.log(factorial(number));
-
-
-
-
-
-
-
-
-
-// let res = 0
-// for(let i=1 ; i<=100;i++){
-//   res = res+i;
-// }
-
-// console.log(res);
-
+for (let i = 1; i <= value; i++) {
+  symvol += "*";
+  console.log(symvol);
+}
