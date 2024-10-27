@@ -11,7 +11,7 @@
 Если не делиться ни на 3 ни на 5 - просто называет это число
 
 */
-for
+//qqqqq
 
 function FiizBuzzGame(limit){
     for(let i = 1;i<=limit;i++){
