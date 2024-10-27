@@ -13,8 +13,13 @@
 */
 //qqqqq
 
+
+
+
+
 function FiizBuzzGame(limit){
-    for(let i = 1;i<=limit;i++){
+    for(let i = 1;i<=num1;i++){
+
         if(i%5===0 && i%3===0){
             console.log(i + ' FizzBuzz');
         } else if(i%5===0){
