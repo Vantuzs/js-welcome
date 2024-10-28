@@ -37,3 +37,20 @@ function Cat(name, color, breed, age, speed){
 
 const cat1 = new Cat('Bublik','white','Dvorovyi', 3, 15);
 const cat2 = new Cat('Murzik', 'black', 'siam', 4, 12);
+
+/*
+
+Создайте функци констуктор собаки, у которога мае бути Имя, цвет и возраст
+
+Сделайте несколько собак
+
+*/
+
+function Dog(name,color,age){
+    this.name = name;
+    this.color = color;
+    this.age = age;
+}
+
+const dog1 = new Dog('Baton', 'black', 5);
+const dog2 = new Dog('Dublon', 'grey', 10);
