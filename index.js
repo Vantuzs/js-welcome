@@ -28,7 +28,7 @@ function Cat(name, color, breed, age, speed){
     this.color = color;
     this.breed = breed;
     this.age = age;
-    this.run = function(){
+    run = function(){
         return this.name + ' is runing ' + speed + ' km';
     }
 }
