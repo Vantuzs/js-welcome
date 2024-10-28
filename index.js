@@ -1,56 +1,86 @@
-/* Способи створення об'єкта
+/* Разработка програмы для управления книжным магазом
 
-const cat = { // літеральне створення об'єкта
+Предметная область: В книжном магазе у нас будет много книг. Мы их продаём.
 
-}
+Все наши книги по сути можно представить в виде объекта с одинаковой структурой.
 
-const cat2 = Object(); // Функція-конструктор
+done -->> Задача: создать констуктор объектов для представления книг с следующими властивостями.
+Название книги, автор, год создания, цена
 
-const cat3 = new Object(); // Функція-конструктор з оператором new
+Спроэктировать методы:
+Спроэктировать методы для получения и установления значений этих властивостей
 
+done -->> Задача 2: Сделать для всех книг метод, который бы повернул цену книги, але с скидкой
 */
 
-// Конструктор визначае шаблот або "скелет" Обьектов, которые будут создаваться
+function Book(title, author, year, price){
+    this.title = title;
+    this.author = author;
+    this.year = year;
+    this.price = price;
 
-/*
-Угоды у фукнциях конструкторах:
+    this.getTitle = function(){
+        // мы можем реализовать, проверку права на доступ до властивости
 
-1. Имя фукнции конструктора мае починатыся с большой буквы
-2. Фукнция конструктор должна выполняться только за помощью оператора new
+        return this.title;
+    }
 
+    this.getAuthor = function(){
+        // мы можем реализовать, проверку права на доступ до властивости
 
-*/
+        return this.author;
+    }
 
-// Задача: написать функцию конструктор для создания кота
+    this.getYear = function(){
+        // мы можем реализовать, проверку права на доступ до властивости
+        return this.year;
+    }
 
-function Cat(name, color, breed, age, speed){
-    this.name = name; // this - посилання на ось цього новостворенного кота
-    this.color = color;
-    this.breed = breed;
-    this.age = age;
-    run = function(){
-        return this.name + ' is runing ' + speed + ' km';
+    this.getPrice = function(){
+        // мы можем реализовать, проверку права на доступ до властивости
+
+        return this.price;
+    }
+
+    this.setTitle = function(newTitle){
+        // Могли реализовать, напривер, какието проверки - например на право(может не может)
+        this.title = newTitle;
+    }
+
+    this.steAuthor = function(newAuthor){
+        // Могли реализовать, напривер, какието проверки - например на право(может не может)
+
+        this.author = newAuthor;
+    }
+
+    this.setYear = function(newYear){
+        // Могли реализовать, напривер, какието проверки - например на право(может не может)
+
+        this.year = newYear;
+    }
+
+    this.setPrice = function(newPrice){
+        // Могли реализовать, напривер, какието проверки - например на право(может не может)
+
+        this.price = newPrice;
+    }
+
+    this.calcaleteDiscountPrice = function(discountPercentage){
+        const discountedPrice = this.price - (this.price*(discountPercentage/100));
+        return discountedPrice;
     }
 }
 
-// Задача: создать несколько (двух) котов, с помощью нашей фукнции конструктора
+const book1 = new Book('Чотири витры', 'Кристин Генна', 2021, 450.00);
 
-const cat1 = new Cat('Bublik','white','Dvorovyi', 3, 15);
-const cat2 = new Cat('Murzik', 'black', 'siam', 4, 12);
+// console.log( book1.getTitle());
+// console.log( book1.getAuthor());
+// console.log( book1.getYear());
+// console.log( book1.getPrice());
 
-/*
+// book1.setTitle('New Title');
+// book1.steAuthor('New Author');
+// book1.setYear(2025);
+// book1.setPrice(350);
 
-Создайте функци констуктор собаки, у которога мае бути Имя, цвет и возраст
-
-Сделайте несколько собак
-
-*/
-
-function Dog(name,color,age){
-    this.name = name;
-    this.color = color;
-    this.age = age;
-}
-
-const dog1 = new Dog('Baton', 'black', 5);
-const dog2 = new Dog('Dublon', 'grey', 10);
+console.log(book1.calcaleteDiscountPrice(50));
