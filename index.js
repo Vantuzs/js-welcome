@@ -1,18 +1,8 @@
-
-
-const obj = {
-    Mon: 'drive lesson',
-    Tue: 'Dantist visit',
-    Wed: 'go to patry',
-    Thu: 'hard work',
-    Fri: 'chill',
-    Sat: 'go to park',
-    'favorite color': 'white',
-    0: 'value'
+function greeting(user){
+    return `Hello ${'name' in user ? user.name : 'Anonym'}`;
 }
 
-// оператор in 
-// in - бинарный оператор
-// "key" in obj
-
-console.log( 'name' in obj);
+const user = {
+    email: 'john.doe@gmail.com',
+    name: 'Peter'
+}
