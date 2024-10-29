@@ -1,23 +1,29 @@
 
-
-// Практика
-
-// У нас есть фукнция
-function greetingUser(user){
-    user.age = 50;
-    return `Hey ${user.name}${user.surname}! Тебе в следующем году исполнится ${user.age + 1} лет!`;
-} 
 const user = {
-    name: 'Johs',
-    surname: 'Fisher',
-    age: 19,
-    
+    name: 'John',  // ключ 'name', значення - 'John'
+    'favorite color': 'red',
+    0: 'value',
 }
 
-// greetingUser(user);
+// Ключом в обьекте может быть рядок или тип данных Symvol
 
-// У нас есть обЪект
+// . - оператор доступа за именем властивости (когда речь идет про валидные индефикаторы)
+
+console.log(user.name); // John
+// user.'faborite color'; -->> syntax error
+// user.0; -->> syntax error
 
 
-// Написать фукнцию greetingUser таким образом, что бы она вилата користувача и указала, сколько бы лет ему исполниться в следующем году
+// [] - Оператор доступа до обчислювальнои властивости (когда речь идет про невалидные индефикаторы)
 
+console.log(user['favorite color']); // red
+console.log(user[0]); // value
+
+const someObj = {
+    2: 10
+}
+
+// Задача: получить значение, которое находиться под клбчем 2
+
+console.log(someObj[2]);
+console.log(someObj['2']);
