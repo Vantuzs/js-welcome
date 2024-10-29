@@ -1,72 +1,50 @@
+// Задача:
 /*
-
-Задача 1
-
-Сделать функцию конструктор Country, которая принимает в качестве аргументов
-- название страны
-- популяцию (population)
-- площа (area)
-Спроэктировать метод густоты населения
-густота населення = популяция / площадь
+Всередине алерту выполнить математический расчет: 2+2=4
 */
 
-function Country(name,population,area){
-    this.name = name;
-    this.population = population;
-    this.area = area;
-    this.gustota = function(){
-        let gustota;
-        gustota = this.population/area;
-        return gustota;
+// alert('2+2=' + (2+2));
+
+// Двойные лапки: "Привет" -->> шаблонный рядок
+// Одинари лапки: 'Привет'
+
+// Зворотни лапки:`Привет` 
+// Вирази укладаются ${...вираз...}
+
+// Рядки которые находятся в зворотних лапках называются шаблонними рядками
+const nickName = 'Вася';
+
+// Задача: створити alert и поприветсвоваться с Васей
+// alert('Привет, ' + nickName + '!');
+// alert(`Привет, ${nickName}!`) // `` -->> шаблонный рядок
+
+// alert(`рузультат: ${1+2}`);
+
+// Задача: спросить у пользователя 2 числа и вывести ответ алертом
+
+const first = Number(prompt('Enter first number: '));
+const second = Number(prompt('Enter second number: '));
+
+// alert(String(first) + '+' + String(second) + '=' + String(first+second)); // 5+5=10
+
+alert(`${first} + ${second} = ${first+second}`);
+
+// Практика
+
+// У нас есть фукнция 
+const user = {
+    nameS: 'Johs',
+    surname: 'Fisher',
+    age: 19,
+    hello:  function(){
+        return console.log(`Привет - ${nameS}${surname}! Тебе в следующем году ${age++} лет=)`);
+
     }
 }
 
-const coutry1 = new Country('Ukraine',41130432, 603628 );
-const coutry2 = new Country('Germany',84270625, 357,592);
 
-/*
+// У нас есть обЪект
 
-Задача 2:
 
-Сделать функцию-конструктор Авто, которое имеет:
-- название
-- максимальная скорость
-- поточная скороть
-Спроэктировать методы:
-- метод прискорення (accelearte) - принимает в качестве аргумента певне прискорення
-Зауважте, прискорення !== >макс скорости
-- метод торможение-снижение скорости (deacclerate) -принимает в качестве аргумента певне сповильнення
-Зауважте, що поточна скорость авто не может быть <0
-- метод остановки (stop)
+// Написать фукнцию greetingUser таким образом, что бы она вилата користувача и указала, сколько бы лет ему исполниться в следующем году
 
-*/
-
-function Auto(name,maxspeed,potocSpeed,){
-    this.name = name;
-    this.maxspeed = maxspeed;
-    this.potocSpeed = potocSpeed;
-    this.accelearte = function(speedUp){
-        speedUp=this.potocSpeed+speedUp;
-        if(speedUp>this.maxspeed){
-            return 'Erorr';
-        } else{
-            this.potocSpeed = speedUp;
-            return this.potocSpeed;
-        }
-    }
-    this.deaccelearte = function(speedDown){
-        speedDown = this.potocSpeed-speedDown;
-        if(speedDown<0){
-            return 'Erorr';
-        } else {
-            this.potocSpeed = speedDown;
-            return this.potocSpeed
-        }
-    }
-    this.stop = function(){
-        
-        return this.potocSpeed-this.potocSpeed;
-    }
-}
-
-const car1 = new Auto('Lanus', 400,100);
