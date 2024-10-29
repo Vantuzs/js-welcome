@@ -25,3 +25,27 @@ object - обьект, властивости (ключи) которого мы
 for(let key in user){
     console.log(`${key} ---> ${user[key]}`); // key ---> value
 }
+
+/*
+
+Задача: написать фукнцию, которая принимает обьект и выводит все значения всех властивостей, оформленни *...*
+а ключи = "..."
+*/
+
+const obj = {
+    key1: 'value1',
+    key2: 'value2',
+    key3: 'value3',
+    key4: 'value4',
+    key5: 'value5',
+    
+}
+
+function perebor(obect){
+    for(let key in obect){
+        console.log(`"${key}" ---> *${obect[key]}*`);
+    }
+}
+
+perebor(obj);
+perebor(user);
