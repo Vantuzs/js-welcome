@@ -4,7 +4,8 @@
 
 // У нас есть фукнция
 function greetingUser(user){
-    return alert(`Hey ${user.name}${user.surname}! Тебе в следующем году исполнится ${user.age + 1} лет!`);
+    user.age = 50;
+    return `Hey ${user.name}${user.surname}! Тебе в следующем году исполнится ${user.age + 1} лет!`;
 } 
 const user = {
     name: 'Johs',
@@ -13,7 +14,7 @@ const user = {
     
 }
 
-greetingUser(user);
+// greetingUser(user);
 
 // У нас есть обЪект
 
