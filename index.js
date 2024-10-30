@@ -59,7 +59,7 @@ function sumArray (arr){
     for(let i =0;i<arr.length;i++){
         sum+=arr[i];
     }
-    console.log(sum);
+    return console.log(sum);
 }
 
 sumArray(arr)
