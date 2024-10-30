@@ -11,16 +11,17 @@
 
 */
 
-const arr = [3,6,8,2,3,5,1];
+const numbersArray = [3,6,8,2,3,5,1];
 
-function arrBig(arr){
-    let big = 0;
-    for(let i= 0 ; i<arr.length;i++){
-        if(big<arr[i]){
-            big=arr[i]
+function maxArray(array){
+    let maxNuber = array[0];
+
+    for(let i= 0 ; i<array.length;i++){
+        if(array[i]>maxNuber){ // если поточный просматреваемы елемент масива больше нежели максемальное число, что мы запомнили
+            maxNuber=array[i]
         }
     }
-    return big;
+    return maxNuber;
 }
 
-console.log(arrBig(arr));
+console.log(maxArray(numbersArray)); // 8
