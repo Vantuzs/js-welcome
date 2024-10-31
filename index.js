@@ -37,32 +37,19 @@
 // Копирует масив с индекста М (включно) до индекса N (не вкл.)
 // array.slice(M,N)
 
-const arr1 = [1,2,3,4,5,6,7,8];
-const arr2 = arr1.slice(2);
 
+// Мутация - перемена
+// Мутабельной - то, что можно изменить
+// Имутабельное - то, что не может быть изменено
 
-
-const users = [{
+const user = { // обьекты - мутабельные
     name: 'John',
-    lastname: 'Doe'
-},{
-    name: 'Jane',
-    lastname: 'Doe'
-},{
-    name: 'Jack',
-    lastname: 'Dosh'
-}];
+    lastName: 'Doe'
+}
 
-const newUsers = users.slice(); // newUsers - поверхнастная копия
-const upUsers = newUsers.slice(); // upUsers - поверхнастная копия с поверхнастной копии
+user.isHungry = false;
 
+// Приминивные типы(String, Number,Boolean,Null,Undefined,Symbol,Bigint) - Имутабельные
 
-
-////////////////////
-
-const newArr = [1, 2, 3, 4, 5, 6]; // link to ARRAY
-const arrFromNewArr = newArr; // link to newArr (ORIGINAL ARRAY)
-console.log(newArr === arrFromNewArr); // виведе true
-
-const arrFromSlice = newArr.slice(); // new array; new address
-console.log(newArr === arrFromSlice); // виведе false
+const userName = 'John Doe';
+userName.isHungry = false;
