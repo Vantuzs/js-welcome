@@ -32,49 +32,37 @@
 // Методы, которые НЕ меняют выходной масив - немутуючи методы (Большинство методов масива)
 
 
+// array.slice - Используется для создания нового масива, который складаеться только с какойто определённой части входного масива (Немутирующий)
+// array.slice([start = 0],[end = array.length-1]); - end не включно - [start, end)
+// Копирует масив с индекста М (включно) до индекса N (не вкл.)
+// array.slice(M,N)
 
-/*
+const arr1 = [1,2,3,4,5,6,7,8];
+const arr2 = arr1.slice(2);
 
-1. Дано лва масива: [1,2,3] и [4,5,6]. Обьеденить их в масив [1,2,3,4,5,6]
-2. Дано масив [1,2,3]. Сделать из него масив [3,2,1]
-3. Дано масив [3,4,5]. Добавте ему в конец элементы 4,8,10
-4. Дано масив ['aaaa','bbb','ccc'] Выведите в консоль последний элемент и удалите его с масива
-5. Дано масив ['3',7,10] Добавте ему на начало елементы 2,8.
-6, Дано масив ['3',7,10] Получите с него рядок
-*/
 
-//1
 
-const arr1 = [1,2,3];
-const arr2 = [4,5,6];
-const arr3 = arr1.concat(arr2);
-console.log(arr3);
+const users = [{
+    name: 'John',
+    lastname: 'Doe'
+},{
+    name: 'Jane',
+    lastname: 'Doe'
+},{
+    name: 'Jack',
+    lastname: 'Dosh'
+}];
 
-//2 
+const newUsers = users.slice(); // newUsers - поверхнастная копия
+const upUsers = newUsers.slice(); // upUsers - поверхнастная копия с поверхнастной копии
 
-const arr4 = [1,2,3];
-console.log(arr4.reverse());
 
-//3
 
-const arr5 = [3,4,5];
-arr5.push(4,8,10);
-console.log(arr5);
+////////////////////
 
-//4
+const newArr = [1, 2, 3, 4, 5, 6]; // link to ARRAY
+const arrFromNewArr = newArr; // link to newArr (ORIGINAL ARRAY)
+console.log(newArr === arrFromNewArr); // виведе true
 
-const arr6 = ['aaa','bbb','ccc'];
-console.log(arr6.pop());
-console.log(arr6);
-
-//5
-
-const arr7 = ['3',7,10];
-console.log(arr7.unshift(2,8));
-console.log(arr7);
-
-//6
-
-const arr8 = ['3', 7, 10];
-
-console.log(arr8.join(' ---> '));
+const arrFromSlice = newArr.slice(); // new array; new address
+console.log(newArr === arrFromSlice); // виведе false
