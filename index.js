@@ -1,65 +1,36 @@
-//1
-const user = {
-    name: 'John',
-    lastName: 'Doe',
-    email: 'JohnDoe01@gmail.com',
-    password: 'qwe123',
-    number: +380663223220,
-    adres: {
-        city: 'Bubrovka',
-        uliza: 'Snorovskaya',
-        dom: '32c',
-        kv: 322
-    }
+// array.concat - используется для обьеднання двох або больше масивов в новый масив(немутирующий)
+// array.concat(array1,array2, ..., arrayN)
 
-}
-//2
-function hello(obj){
-    console.log(`Hello mister ${obj.name} ${obj.lastName}!`);
-}
+// array.fill() - используется для заполнения всех элементов масива какмито одним значением(мутирующий)
+// array.fill(value,[start,[end]]); // start, end - не обязательные
 
-hello(user);
+// array.includes - используется для проверки наявности определённого значения в масиве(немутирующий)
+// array.includes(searchValue, [fromIndex])
 
-//3
+// array.indexOf - используется для получения первого вхождения определённого значения в масиве(немутирующий)
+// array.undexOf(serchElement, [fromIndex])
 
-function outputOfTheEntireObject(obj){
-for(let key in obj){
-    console.log(obj[key]);
-}
-}
+// array.join - используется для создания рядка, обьединяя все элементы масива(немутирующий)
+// array.join([separator])
 
-outputOfTheEntireObject(user);
+// array.push - используется для додавання одного или нескольки елементов в конец масива(мутирующий)
+// array.push(elemetn1, ... , elementN);
 
-//4-5
+// array.pop - он вызывается на масиве и не принимает никаких аргуметнов, Используется для удаления последнего элемента(мутирующий)
 
-function Auto(name,maxspeed,potocSpeed,){
-    this.name = name;
-    this.maxspeed = maxspeed;
-    this.potocSpeed = potocSpeed;
-    this.accelearte = function(speedUp){
-        speedUp=this.potocSpeed+speedUp;
-        if(speedUp>this.maxspeed){
-            return 'Erorr';
-        } else{
-            this.potocSpeed = speedUp;
-            return this.potocSpeed;
-        }
-    }
-    this.deaccelearte = function(speedDown){
-        speedDown = this.potocSpeed-speedDown;
-        if(speedDown<0){
-            return 'Erorr';
-        } else {
-            this.potocSpeed = speedDown;
-            return this.potocSpeed;
-        }
-    }
-    this.stop = function(){
-        
-        return this.potocSpeed-this.potocSpeed;
-    }
-}
+//arrau.shift - используется для удаления элемента с начала масива, и возващает его значение(мутирующий)
+const arr1 = [5,12,11,24,85];
+// console.log( arr1.shift());
 
-const car1 = new Auto('Lanus', 330,100);
+// array.unshift - используется для добавления одно или нескольки элементов на начало масива(мутирующий)
+// array.unshift(emlement1, element2, ...,  elemtntN)
 
-const car2 = new Auto('Tavria',300, 100);
+const arr2 = [1,2,3,4];
+// console.log( arr2.unshift(-1,0));
+
+//array.reverse - используется для перемены порядка елементов в масиве на противоположный(мутирующий)
+const arr3 = ['one', 'two', 'three'];
+console.log(arr3.reverse());
+
+// Методы, которае меняю выходной масив - мутуючи методи
+// Методы, которые НЕ меняют выходной масив - немутуючи методы (Большинство методов масива)
