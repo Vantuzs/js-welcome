@@ -98,4 +98,8 @@ array.forEach((item) => {
 // array.map - работает как forEach, только map будет возвращать новый масив
 
 
-const newArray = array.map((item) => item**2);
+const newArray = array.map((item) => {
+    return  item**2;
+});
+
+// Когда мы используем map, в таком случае, значення которое вы возвращаете (return) с колбэку - оно и будет входить в результуючий масив
