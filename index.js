@@ -86,81 +86,18 @@
 // Когда мы используем map, в таком случае, значення которое вы возвращаете (return) с колбэку - оно и будет входить в результуючий масив
 
 
+// Любая JS функция это Обьект
 
+// Задача: написать функцию будь якои количесва переданых в нее аргументов
 
-
-const users = [{
-    name: 'John',
-    lastName: 'Doe',
-    age: 19,
-    email: 'john.doe@gmail.com'
-},{
-    name: 'Jane',
-    lastName: 'Doe',
-    age: 22,
-    email: 'jane.doe@gmail.com'
-},{
-    name: 'Jackson',
-    lastName: 'Doe',
-    age: 55,
-    email: 'jackson.doe@gmail.com'
-}]
-
-
-/*
-
-Задача 1
-
-Увеличить возраст пользователей на 1
-
-
-*/
-
-users.forEach((item) => {
-    
-    item.age+=1
-});
-console.log(users);
-
-/*
-
-Задача 2
-
-Дано масив:
-
-const array = [2,44,11,234,8,2,4,1]
-
-Сделать новый масив, все елементы которого = елемент с старого масива + 100 
-
-*/
-
-const array = [2,44,11,234,8,2,4,1];
-const array2 = array.map((items) => items+= 100 );
-
-console.log(array2);
-
-
-/*
-
-Задача 3
-
-сделать новый масив пользователей, обьекты должны быть в таком выгляде
-{
-fullname: 'John Doe',
-email: 
-}
-
-*/
-
-
-
-function newUsersObject(item) {
-    return {
-        fullname: `${item.name} ${item.lastName}`,
-        email: item.email
+function sum(){
+    const arrayArgs = Array.from(arguments);
+    let sum = 0;
+    for(let i = 0; i<arrayArgs.length; i++){
+        sum+= arrayArgs[i]
     }
+    return sum;
 }
 
-const newUser = users.map(newUsersObject);
-console.log(newUser);
 
+console.log(sum());
