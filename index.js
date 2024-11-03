@@ -64,9 +64,9 @@
 // L - сколько элементов удалить 
 
 
-function saySomething(howToSay, whatToSay) {
-    howToSay(whatToSay);
-}
+// function saySomething(howToSay, whatToSay) {
+//     howToSay(whatToSay);
+// }
 
 // saySomething(alert,'Hello user');
 // saySomething(console.log,'hiiiii!');
@@ -81,25 +81,86 @@ function saySomething(howToSay, whatToSay) {
 // array.forEach - используется для перебору (Итерации) каждого элемента масива и выполнения орпеделёной задачи для каждого элемента
 // array.forEach(callback)
 
-// Задача: у нас есть масив чисел
-// Каждое значение этого масива возвести в квадрат 
-
-const array = [1,2,3,4,5];
-
-
-array.forEach((item) => { 
-    console.log(item**2);
-});
-
-
-
-
-
 // array.map - работает как forEach, только map будет возвращать новый масив
 
-
-const newArray = array.map((item) => {
-    return  item**2;
-});
-
 // Когда мы используем map, в таком случае, значення которое вы возвращаете (return) с колбэку - оно и будет входить в результуючий масив
+
+
+
+
+
+const users = [{
+    name: 'John',
+    lastName: 'Doe',
+    age: 19,
+    email: 'john.doe@gmail.com'
+},{
+    name: 'Jane',
+    lastName: 'Doe',
+    age: 22,
+    email: 'jane.doe@gmail.com'
+},{
+    name: 'Jackson',
+    lastName: 'Doe',
+    age: 55,
+    email: 'jackson.doe@gmail.com'
+}]
+
+
+/*
+
+Задача 1
+
+Увеличить возраст пользователей на 1
+
+
+*/
+
+users.forEach((item) => {
+    
+    item.age+=1
+});
+console.log(users);
+
+/*
+
+Задача 2
+
+Дано масив:
+
+const array = [2,44,11,234,8,2,4,1]
+
+Сделать новый масив, все елементы которого = елемент с старого масива + 100 
+
+*/
+
+const array = [2,44,11,234,8,2,4,1];
+const array2 = array.map((items) => items+= 100 );
+
+console.log(array2);
+
+
+/*
+
+Задача 3
+
+сделать новый масив пользователей, обьекты должны быть в таком выгляде
+{
+fullname: 'John Doe',
+email: 
+}
+
+*/
+
+
+
+function newUsersObject(item) {
+    return {
+        fullname: `${item.name} ${item.lastName}`,
+        email: item.email
+    }
+}
+
+const newUser = users.map(newUsersObject);
+console.log(newUser);
+
