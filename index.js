@@ -98,29 +98,17 @@
 // Колбек будет вызыватся для каждого елемента масива -> 
 // -> эта колбек функция всередине filter она должна возвращать true/false для каждого елемента масива
 
-const numbersArray = [5,3,-9,21,-5,1,-2,4];
-// Задача:  Отфильтровать масив numbersArray, чтобы остались только додатни числа (числа >0)
+// array.reduce - используется для вычесления котогото ОДНОГО значения на основе всех елементов масива (Немутирующий)
+// reduce - сводит все елементы масива до какогото одного результатирующего значения
+// array.reduce(callback, initialValue)
 
-function filterFunction(item) {
-    // if(item > 0){
-    //     return true;
-    // } else{ // item < 0
-    //     return false;
-    // }
+const numbersArray = [2,3,1,2,34,21];
 
-    return item>0;
+// Задача: найти сумму numbersArray
+
+function reducer(accumulator, item) {
+    // то что возвращает reducer - обновленный акумулятор
+    return accumulator + item;
 };
 
-const filteredNumbersArray =numbersArray.filter(filterFunction);
-
-/*
-
-Сделать новый масив, в который войдут только парные елементы нач. масива
-
-*/
-
-function filterParn(item){
-    return item%2===0
-}
-
-const parnArray = numbersArray.filter(filterParn)
+const sum = numbersArray.reduce(reducer, 0)
