@@ -112,3 +112,15 @@ function filterFunction(item) {
 };
 
 const filteredNumbersArray =numbersArray.filter(filterFunction);
+
+/*
+
+Сделать новый масив, в который войдут только парные елементы нач. масива
+
+*/
+
+function filterParn(item){
+    return item%2===0
+}
+
+const parnArray = numbersArray.filter(filterParn)
