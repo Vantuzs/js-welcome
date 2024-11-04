@@ -88,16 +88,19 @@
 
 // Любая JS функция это Обьект
 
-// Задача: написать функцию будь якои количесва переданых в нее аргументов
+/*
 
-function sum(){
-    const arrayArgs = Array.from(arguments);
-    let sum = 0;
-    for(let i = 0; i<arrayArgs.length; i++){
-        sum+= arrayArgs[i]
-    }
-    return sum;
-}
+Задача:
+Сделать новый масив, каждый едемент которого = елемент с старого елемента * 2
+
+*/
+
+const oldArray = [2,3,4,5,1,2]; 
+
+const newArray = oldArray.map((item)=> {
+    return item*2;
+}).reverse().join(','); // chaining - обьединение методов в рядок,(лансюжок)
 
 
-console.log(sum());
+// Нужно всять и сменить порядок следования элементов в масиве newArray на противоположный
+// Нужно сделать с масива - рядочек, разделённый запятыми
