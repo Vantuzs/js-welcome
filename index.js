@@ -88,6 +88,8 @@
 
 // Любая JS функция это Обьект
 
+// chaining - обьединение методов в рядок,(лансюжок)
+
 /*
 
 Задача:
@@ -99,7 +101,7 @@ const oldArray = [2,3,4,5,1,2];
 
 const newArray = oldArray.map((item)=> {
     return item*2;
-}).reverse().join(','); // chaining - обьединение методов в рядок,(лансюжок)
+}).reverse().join(','); // chaining (map -> revese -> join)
 
 
 // Нужно всять и сменить порядок следования элементов в масиве newArray на противоположный
