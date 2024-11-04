@@ -93,51 +93,22 @@
 // array.sort() - используется для сортировки елементов в масиве (Мутирующий)
 // array.sort([compareFunction]) - compareFunction это вйнкция в которой мы описываем методы сортировки
 
+// array.filter - используется для создания нового масива, который имеет только те елменты, которые удовлетворяют определённому условию (Немутирующий)
+// array.filter(callback)
+// Колбек будет вызыватся для каждого елемента масива -> 
+// -> эта колбек функция всередине filter она должна возвращать true/false для каждого елемента масива
 
-const numbersArray = [5,3,9,21,5,1,2,4];
+const numbersArray = [5,3,-9,21,-5,1,-2,4];
+// Задача:  Отфильтровать масив numbersArray, чтобы остались только додатни числа (числа >0)
 
-// Задача: отсортировать масив по возрастанию
+function filterFunction(item) {
+    // if(item > 0){
+    //     return true;
+    // } else{ // item < 0
+    //     return false;
+    // }
 
-// numbersArray.sort(); // сортировка по возрастанию (unicode)
-
-const letterArray = ['abb', 'abb' , 'aaa', 'aba'];
-letterArray.sort(); // сортировка по возрастанию (unicode)
-
-// Задача: отсортировать масив numbersArray по возрастанию
-
-function compareFunction(a,b) { // функция-компаратор
-// a - поточное простамтриваемое число
-// b - Следующее число, которое следует за поточным
-if(b > a) {
-    // 4 (a), 6 (b)
-    // отсортировать по возрастанию 
-    return -1;
-} else { // b<a
-    // 10 (a), 5(b)
-    // отсортировать по возрастанию
-    return 1;
-}
+    return item>0;
 };
 
-numbersArray.sort(compareFunction)
-
-
-// Фукнция-компаратор должна вернуть(retern) одно из трех возможных значений 
-
-/*
-
--1 - сперва идет число а, потом число b
-0 - елементы остаются на месте 
-1 - сперва идет число b, потом число а
-
-*/
-
-const newNumbersArray = [3,4,1,0,-5,12,13];
-
-
-function compareNumbers(a,b) { 
-//    return a-b; // сортировка в порядке возрастания
-    return b-a; // сортировка в порядке уменьшения
-    };
-
-    newNumbersArray.sort(compareNumbers);
+const filteredNumbersArray =numbersArray.filter(filterFunction);
