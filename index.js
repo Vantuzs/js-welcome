@@ -143,7 +143,23 @@ const dogArray = [{
 */
 
 
-dogArray.sort((dog1, dog2) => {
-    // return dog1.weight - dog2.weight; // в порядке зростання
-    return dog2.weight - dog1.weight; // в порядке спадання
+// dogArray.sort((dog1, dog2) => {
+//     // return dog1.weight - dog2.weight; // в порядке зростання
+//     return dog2.weight - dog1.weight; // в порядке спадання
+// })
+
+/*
+
+Задача 1 
+
+Отсортировать собак от найстаршого до наймолодшего 
+
+*/
+
+// dogArray.sort((dog1,dog2) => {
+//     return dog2.age - dog1.age;
+// })
+
+const whiteDog = dogArray.filter((item) => {
+    return item.color === 'white'
 })
