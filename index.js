@@ -104,7 +104,9 @@
 
 function MyArray() {
     this.length = 0;
+}
 
+function MyArrayProtorype() {
     this.push = function(){
         // Значение додати в конец масива
         for(let i = 0;i<arguments.length;i++){
@@ -114,7 +116,7 @@ function MyArray() {
         // this[this.length] = arguments;
         // this.length++;
         return this.length;
-    }
+    },
 
     this.pop = function(){
         if(this.length >0){
@@ -129,7 +131,7 @@ function MyArray() {
         } else {
             return undefined;
         }
-    }
+    },
 
     this.forEach = function(callback){
         
@@ -139,39 +141,81 @@ function MyArray() {
         return ;
     }
 }
+
+MyArray.prototype = new MyArrayProtorype(); // прототипне посилання
+
 const arr = new MyArray();
 arr.push(1,2,3,4,5);
 
 arr.forEach((item) => {
     return console.log(item**2);
 })
-// Перепешите push таким образом что бы push мог принимать и добввлял до масива будь какое количество елементов
-// arr.push(1,2,3,4,'22')
+// Какая разница между __proto__ та .prototype
 
-
-
-const cat = {
-    name: 'Barsik',
-    color: 'red',
-    age: 1
+// __proto__ работает только тогда когда мы литерально создали обьект
+{
+    //
 }
 
-const catMethods = {
-    run: function(){
-        return console.log(`${this.name} is running!`);
-    },
-    meow: function() {
-       return console.log(`${this.name} said meow!`);
+// .prototype - когда обьекты создаются с помощью конструктора 
+
+/*
+
+Задача 1
+
+Задача: сделать функицю конструктор для сходив. (ladder)
+Обьект имеет властивость:
+currentStair - ступенька на которой мы сейчас находимся, изначально = 0
+
+Имеет методы: <<<<----- .prototype
+up() - поднимает на ступеньку ниже
+down() - опускает на ступеньку выше 
+showStair() - показывает,  на какой ступеньке мы сейчас находимся
+
+*/
+
+function Ladder() {
+    this.currentStair = 0;
+}
+
+
+function LaddrePrototype() {
+    this.up = function(){
+        this.currentStair++
+        return this;
     }
+    this.down = function(){
+        if(this.currentStair <= 0){
+            this.currentStair=0
+            return this;
+        } else{
+            this.currentStair --
+            return this;
+        }
+    }
+    this.showStair = function(){
+        this.currentStair;
+        return this;
+    }
+    
 }
 
-// как прикрутить catMethods к обьекту cat?
+Ladder.prototype = new LaddrePrototype();
 
-cat.__proto__ = catMethods; // прототипное посилання
 
-const cat2 = {
-    name: 'Murzik',
-    color: 'black',
-    age: 5
-}
-cat2.__proto__ = catMethods;
+const Ladder1 = new Ladder();
+
+
+/*
+Задача 2
+
+Перепешите методы таким образом, что бы можно было использование чейнинга, тоеть что бы можно было обьеденить вызом методов в рядок
+
+const ladder = new Ladder();
+
+ladder.up().up().down().up().showStair
+
+
+
+*/
+
