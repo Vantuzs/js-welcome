@@ -102,64 +102,76 @@
 // reduce - сводит все елементы масива до какогото одного результатирующего значения
 // array.reduce(callback, initialValue)
 
-const dogArray = [{
-    nickname: 'Tuzik',
-    color: 'black',
-    weight: 3,
-    age: 2
-},{
-    nickname: 'Dolly',
-    color: 'white',
-    weight: 5,
-    age: 3
-},{
-    nickname: 'Fagot',
-    color: 'black',
-    weight: 9,
-    age: 5
-},{
-    nickname: 'Stus',
-    color: 'black',
-    weight: 15,
-    age: 1
-}];
+function MyArray() {
+    this.length = 0;
 
-// Задача: отсортировать собак за весом на увеличение(в порядке зростання)
+    this.push = function(){
+        // Значение додати в конец масива
+        for(let i = 0;i<arguments.length;i++){
+            this[this.length] = arguments[i];
+            this.length++;
+        }
+        // this[this.length] = arguments;
+        // this.length++;
+        return this.length;
+    }
 
-// dogArray.sort((dog1,dog2) => {
-//     if(dog1.weight < dog2.weight){
-//         return -1;
-//     } else {
-//         return 1;
-//     }
-// });
+    this.pop = function(){
+        if(this.length >0){
+            // 1. Сохранить последний елемент
+            const lastItem =  this[this.length - 1];
+            // 2. Удалить последний елемент с масива
+            delete this[this.length - 1];
+            // 3. Зменшити длину масива на 1
+            this.length--;
+            // 4. Вернуть последний елемент
+            return lastItem;
+        } else {
+            return undefined;
+        }
+    }
 
-/*
+    this.forEach = function(callback){
+        
+        for(let i = 0;i<this.length;i++){
+            callback(this[i], i,this);
+        }
+        return ;
+    }
+}
+const arr = new MyArray();
+arr.push(1,2,3,4,5);
 
--1 - dog1, dog2
-0 - все на месте 
-1 - dog2, dog1
-
-*/
-
-
-// dogArray.sort((dog1, dog2) => {
-//     // return dog1.weight - dog2.weight; // в порядке зростання
-//     return dog2.weight - dog1.weight; // в порядке спадання
-// })
-
-/*
-
-Задача 1 
-
-Отсортировать собак от найстаршого до наймолодшего 
-
-*/
-
-// dogArray.sort((dog1,dog2) => {
-//     return dog2.age - dog1.age;
-// })
-
-const whiteDog = dogArray.filter((item) => {
-    return item.color === 'white'
+arr.forEach((item) => {
+    return console.log(item**2);
 })
+// Перепешите push таким образом что бы push мог принимать и добввлял до масива будь какое количество елементов
+// arr.push(1,2,3,4,'22')
+
+
+
+const cat = {
+    name: 'Barsik',
+    color: 'red',
+    age: 1
+}
+
+const catMethods = {
+    run: function(){
+        return console.log('Cat is running');
+    },
+    meow: function() {
+       return console.log('Meow!');
+    }
+}
+
+// как прикрутить catMethods к обьекту cat?
+
+cat.__proto__ = catMethods; // прототипное посилання
+
+const cat2 = {
+    name: 'Barsik',
+    color: 'red',
+    age: 1
+}
+cat2.__proto__ = catMethods;
