@@ -158,10 +158,10 @@ const cat = {
 
 const catMethods = {
     run: function(){
-        return console.log('Cat is running');
+        return console.log(`${this.name} is running!`);
     },
     meow: function() {
-       return console.log('Meow!');
+       return console.log(`${this.name} said meow!`);
     }
 }
 
@@ -170,8 +170,8 @@ const catMethods = {
 cat.__proto__ = catMethods; // прототипное посилання
 
 const cat2 = {
-    name: 'Barsik',
-    color: 'red',
-    age: 1
+    name: 'Murzik',
+    color: 'black',
+    age: 5
 }
 cat2.__proto__ = catMethods;
