@@ -102,120 +102,38 @@
 // reduce - сводит все елементы масива до какогото одного результатирующего значения
 // array.reduce(callback, initialValue)
 
-function MyArray() {
-    this.length = 0;
+'use strict';
+// strict mode
+
+console.log(this); // => this вказує на глобальний об'єкт Window
+
+// this у глобальній області видимості посилається на об'єкт Window
+
+function test() { // Function Declaration
+  console.log(this); // => this вказує на функцію
 }
 
-function MyArrayProtorype() {
-    this.push = function(){
-        // Значение додати в конец масива
-        for(let i = 0;i<arguments.length;i++){
-            this[this.length] = arguments[i];
-            this.length++;
-        }
-        // this[this.length] = arguments;
-        // this.length++;
-        return this.length;
-    },
+test();
 
-    this.pop = function(){
-        if(this.length >0){
-            // 1. Сохранить последний елемент
-            const lastItem =  this[this.length - 1];
-            // 2. Удалить последний елемент с масива
-            delete this[this.length - 1];
-            // 3. Зменшити длину масива на 1
-            this.length--;
-            // 4. Вернуть последний елемент
-            return lastItem;
-        } else {
-            return undefined;
-        }
-    },
-
-    this.forEach = function(callback){
-        
-        for(let i = 0;i<this.length;i++){
-            callback(this[i], i,this);
-        }
-        return ;
-    }
+// Function Expression
+const test2 = function() {
+  console.log(this); // => this вказує на функцію
 }
 
-MyArray.prototype = new MyArrayProtorype(); // прототипне посилання
+test2();
 
-const arr = new MyArray();
-arr.push(1,2,3,4,5);
+console.log(this); // this вказує на глобальний об'єкт Window
 
-arr.forEach((item) => {
-    return console.log(item**2);
-})
-// Какая разница между __proto__ та .prototype
-
-// __proto__ работает только тогда когда мы литерально создали обьект
-{
-    //
-}
-
-// .prototype - когда обьекты создаются с помощью конструктора 
-
+// Весь код, оточений фігурними дужками - контекст виконання
 /*
-
-Задача 1
-
-Задача: сделать функицю конструктор для сходив. (ladder)
-Обьект имеет властивость:
-currentStair - ступенька на которой мы сейчас находимся, изначально = 0
-
-Имеет методы: <<<<----- .prototype
-up() - поднимает на ступеньку ниже
-down() - опускает на ступеньку выше 
-showStair() - показывает,  на какой ступеньке мы сейчас находимся
-
+Strict mode запустив такий механізм, що у Function Declaration та Function Expression з'являється свій власний контекст виконання:
+контекстом виконання функції стає сама функція, а не глобальний об'єкт window
 */
 
-function Ladder() {
-    this.currentStair = 0;
+// Arrow Function
+const test3 = () => {
+  console.log(this); // this вказує на глобальний об'єкт Window
+  // Стрілочна функція не має свого власного контексту виконання
 }
 
-
-function LaddrePrototype() {
-    this.up = function(){
-        this.currentStair++
-        return this;
-    }
-    this.down = function(){
-        if(this.currentStair <= 0){
-            this.currentStair=0
-            return this;
-        } else{
-            this.currentStair --
-            return this;
-        }
-    }
-    this.showStair = function(){
-        this.currentStair;
-        return this;
-    }
-    
-}
-
-Ladder.prototype = new LaddrePrototype();
-
-
-const Ladder1 = new Ladder();
-
-
-/*
-Задача 2
-
-Перепешите методы таким образом, что бы можно было использование чейнинга, тоеть что бы можно было обьеденить вызом методов в рядок
-
-const ladder = new Ladder();
-
-ladder.up().up().down().up().showStair
-
-
-
-*/
-
+test3();
