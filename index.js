@@ -103,62 +103,45 @@
 // array.reduce(callback, initialValue)
 
 'use strict';
-// strict mode
 
-console.log(this); // => this вказує на глобальний об'єкт Window
-
-// this у глобальній області видимості посилається на об'єкт Window
-
-function test() { // Function Declaration
-  console.log(this); // => this вказує на функцію
+// Напишите фукнцию суммы двох аргументов
+function sum(a,b){ // Function Declaration
+  return a+b;
 }
 
-test();
-
-// Function Expression
-const test2 = function() {
-  console.log(this); // => this вказує на функцію
+const sumArrow = (a,b) => { // Arrow Function
+  return a+b;
 }
 
-test2();
+const sumArrowVariant2 = (a,b) => a+b;
 
-console.log(this); // this вказує на глобальний об'єкт Window
+// Задача: написать функцию коорая принимает число и зводить його у квадрат
 
-// Весь код, оточений фігурними дужками - контекст виконання
-/*
-Strict mode запустив такий механізм, що у Function Declaration та Function Expression з'являється свій власний контекст виконання:
-контекстом виконання функції стає сама функція, а не глобальний об'єкт window
+const pow = number => number**2 // Если 1 аргумет то круглые скобки можно опустить
+// АЛЕ ! Если ваша функция не принимет аргументов соовсем - круглые скобки обязательно нудно писать 
+
+const SuperFunc = () => { // this указыват на глобальну область видимости
+  this.value = 'Hello'; // нам нужно что бы функция-конструктор указывала на свой властний контекст виконання
+} // Фукнция-конструктор не может быть стрелочной 
+
+
+// arguments - псевдомасив с агрументами, которые мы передаем нашей функции при вызове
+
+const t1 = function(){ // Function Expression
+  console.log(arguments);
+}
+
+t1('hello', 'wordl' , '!!!!!');
+
+const t2 = () => { // стрелочные функции не имеют arguments
+  console.log(arguments);
+}
+
+t2('hello', 'wordl' , '!!!!!');
+
+/* Особенности стрелочных функций(Arrow function)
+
+1. Стрелосыя функция не имеет своего осбственного контекста виконання (она будет всегда брать ближайший доступный ей this, свое this у нее нет)
+2. Стрелочная функция не может быть фукнцией-конструктором
+3. Стрелочная фукнци не имеет колекции arguments
 */
-
-// Arrow Function
-const test3 = () => {
-  console.log(this); // this вказує на глобальний об'єкт Window
-  // Стрілочна функція не має свого власного контексту виконання
-}
-
-test3();
-
-const newspaper = {
-  title: 'News news news...',
-  articles: [{
-    author: 'John Doe',
-    date: '23-08-2023',
-    text: 'lorem'
-  }, {
-    author: 'Richard Doe',
-    date: '25-08-2023',
-    text: 'lorem'
-  }, {
-    author: 'Sam Doe',
-    date: '25-08-2023',
-    text: 'lorem'
-  }],
-  showArticles: function() {
-    this.articles.forEach((item, index) => {
-      console.log(`${this.title} ${index} - ${item.author}`);
-    })
-  }
-}
-
-newspaper.showArticles();
-
