@@ -104,26 +104,9 @@
 
 'use strict';
 
-// Задача 
-/*
-У функции sum найти сумму двух елементов, а все остальные аргументы которые передали в функцию ззовни, при вызове
-их нужно положить в масив
-*/
-
 // rest operator
 // rest - залишок(с англ.)
 // .., .., .., .., -->> []
-
-function sum(a,b, ...arrayOfRestArguments) {
-  console.log(arrayOfRestArguments);
-  return a+b
-}
-
-console.log(sum(1,2,3,4,5,6,7,8));
-
-
-// Задача: написать стрелочную фукнцию, которая сумирует будь-какое количество чисел
-
 const arrowSum = (...restArrayOfNumbers) => {
   let sum = 0;
   for(let i = 0; i<restArrayOfNumbers.length; i++){
@@ -132,18 +115,47 @@ const arrowSum = (...restArrayOfNumbers) => {
   return sum;
 }
 
+// spread operator
+// spread - распаковать(с англ.)
+// [] -->> .., .., .., ..,
 
-/*
+const numbers = [1,2,3,4,5];
 
-Задача:
+function sum (a,b, ...restArray) {
+  console.log(restArray);
+  return a+b;
+}
 
-Напишите вариант функции arrowSum с использование метода reduce
-При вызове reduce передайте стрелочный колбек стрелка
+// console.log(sum(numbers[0],numbers[1],numbers[2],numbers[3],numbers[4]));
+console.log(sum(...numbers));// spread operator
+// распаковали все значения масива numbers в вызов функции sum
 
-*/
+//  как отличать rest и spread оператор?
 
-const arrowSum1 = (...R) => R.reduce((a,b)=> a+b, 0)
+// если оператор стоит в аргументах фукнции, то это rest оператор, он просто берет и собирает все остатки параметров
+// Если мы используем оператор на масиве - то это spread оператор - он берет и розбивает масив на кучу елеметов
 
 
 
-console.log( arrowSum1(2,2));
+
+// Пример использование spread оператора №1
+
+const numbersMath = [2,3,1,5,4];
+
+Math.min(...numbersMath); //1
+
+// Пример использование spread оператора №2
+
+// Задача: сделать масив с название copyArray в который будут входить все елементы с масива numbersMath
+
+const copyArray = [...numbersMath];
+
+// задача
+
+const arr1 = [1,2,3,4,5];
+const arr2 = [10,11,12,13,14,15];
+
+//Нужно склеить эти 2 масива
+// Не можно использовать метод concat
+
+const arr3 = [...arr1, ...arr2]
