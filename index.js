@@ -132,3 +132,18 @@ const arrowSum = (...restArrayOfNumbers) => {
   return sum;
 }
 
+
+/*
+
+Задача:
+
+Напишите вариант функции arrowSum с использование метода reduce
+При вызове reduce передайте стрелочный колбек стрелка
+
+*/
+
+const arrowSum1 = (...R) => R.reduce((a,b)=> a+b, 0)
+
+
+
+console.log( arrowSum1(2,2));
