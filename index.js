@@ -207,7 +207,7 @@ Array.from(str)
 
 // string.charCodeAt() - используется для возвращения кодовой точки Unicode символу с рядка за указаным индексом
 
-// string.concat() - используется для оьединения (конкатенации) двух или больше рядков, и возвращает новый рядок(Не мутирующий)
+// string.concat() - используется для обьединения (конкатенации) двух или больше рядков, и возвращает новый рядок(Не мутирующий)
 
 // string.icludes - используется для проверки, имеется ли определённый подрядок в заданом рядке
 
@@ -226,4 +226,21 @@ Array.from(str)
 
 
 
-const str = 'abracadabra'
+/*
+
+Написать фуенцию, которая принимает рядок и делает каждую первую букву каждого слова с большой буквы
+
+*/
+
+
+function capitalizeWords(str) {
+  // разбиваем рядок на отдельны строки
+  let words =str.split(' ')
+  for(let i = 0; i<words.length;i++){
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1)
+  }
+
+return words.join(' ');
+}
+
+console.log(capitalizeWords('word flower third'));
