@@ -477,3 +477,42 @@ powRecursive(x,n) =
 // Кількість вкладених викликів - глибина рекурсії
 
 // Ми стремимся до того, що глибина рекурсії не має перевищувати 10000 викликів
+
+
+/* Задача 1
+
+Найти факториал числа 
+5! = 1*2*3*4*5 = 120
+
+*/
+
+function factorialo(x){
+  if(x === 1){
+    return x;
+  } else{
+    return x* factorialo(x-1)
+  }
+}
+
+console.log(factorialo(5));
+
+
+/* Задача 2 (*) 
+
+Описать нахождение последовательности чисел Фибаначчи:
+F(n) = F(n-1) + F(n-2)
+
+Другими словами, следующее число есть суммой двох следующих
+
+*/
+
+
+function fibanacci(num,zero){
+  if(num === 1){
+    return zero
+  } else{
+    return zero * fibanacci(num-1,zero++)
+  }
+}
+
+console.log(fibanacci(100));
