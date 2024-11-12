@@ -224,7 +224,7 @@ Array.from(str)
 // string.split - используется для розбивания вихидного рядка на подрядки, используя роздильник(separator) как точку разрыва между рядками и возвращает масив, что складается с этих подрядков
 
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*
 
@@ -233,15 +233,15 @@ Array.from(str)
 */
 
 
-function capitalizeWords(str) {
-  // разбиваем рядок на отдельны строки
-  let words =str.split(' ')
-  for(let i = 0; i<words.length;i++){
-    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1)
-  }
+// function capitalizeWords(str) {
+//   // разбиваем рядок на отдельны строки
+//   let words =str.split(' ')
+//   for(let i = 0; i<words.length;i++){
+//     words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1)
+//   }
 
-return words.join(' ');
-}
+// return words.join(' ');
+// }
 
 // console.log(capitalizeWords('word flower third'));
 
@@ -251,48 +251,90 @@ return words.join(' ');
 Если запрещенных слов в рядке нету - возвращает false
 */ 
 
-function checkSpam(str){
-  let otv = null;
-  let string = str.toUpperCase().split(' ')
-  string.forEach((a,b)=> {
-    let danger = a.indexOf('XXX')
-    let viagra = a.indexOf('VIAGRA')
-    if(danger >= 0){
-      console.log(string[b]);
-      console.log(a);
-      console.log(`${danger} xxx -> `);
-      return otv=true
-    } else if(viagra>=0){
-      console.log(a);
-      console.log(`${viagra} Viagra -> `);
-      return otv=true
-    }
-  })
-  if(otv === null){
-    otv=false
-  }
-  return otv
+// function checkSpam(str){
+//   let otv = null;
+//   let string = str.toUpperCase().split(' ')
+//   string.forEach((a,index)=> {
+//     let danger = a.indexOf('XXX')
+//     let viagra = a.indexOf('VIAGRA')
+//     if(danger >= 0){
+//       console.log(`Index -> ${index} `);
+//       console.log(a);
+//       console.log(`${danger} xxx -> `);
+//       return otv=true
+//     } else if(viagra>=0){
+//       console.log(a);
+//       console.log(`${viagra} Viagra -> `);
+//       return otv=true
+//     }
+//   })
+//   if(otv === null){
+//     otv=false
+//   }
+//   return otv
   
+// }
+
+// console.log(checkSpam('Wwwxw dsawdsxxxaw viagra viagra  dxxsadw  ewqewqe e weqeqweq '));
+// //
+
+// function checkPalinrom(str) {
+//   let string = str.toLowerCase()
+//   let string2 = Array.from(string).reverse().join('')
+  
+  
+  
+//     if(string === string2){
+//       console.log(`Cajual string -> ${string}`);
+//       console.log(`Reverse string -> ${string2}`);
+//       return true;
+//     }else{
+//       console.log(`Cajual string -> ${string}`);
+//       console.log(`Reverse string -> ${string2}`);
+//       return false;
+//     }
+// }
+
+// console.log(checkPalinrom('anna'))
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+const date = new Date(); // по умолчанию будет создана системная дата и время
+const date1 = new Date('12-31-2023');
+
+console.log(date1.getDate()); // 31; getDate - используется для получения дня месяца с даты 
+console.log(date1.getDay()); // 0; getDay - используется для получения дня недели с даты(0- воскресенье.... 6 - субота)
+console.log(date1.getUTCFullYear()); // 2023; getFullYear - используется для получения года с даты
+console.log(date.getHours()); // getHours - используется для получения часа с даты
+console.log(date1.getTime()); // get.Time - используется для получения количества милесекунд, которые прошли с 1 января 1970 года 00:00:00.. 
+
+// Задача: найти сумму первого 1000000 чисел
+
+let sum = 0; // 1. Создаем перемену
+
+const time1 = new Date(); // отрезок часа До начала операции 2
+
+for(let i=0; i<=1000000;i++){ // 2. Накапливаем сумму
+  sum+= i
 }
 
-console.log(checkSpam('Wwwxw dsawdsaw viagra viagra  dxxsadw  ewqewqe e weqeqweq '));
-//
+const time2 = new Date();// Отрезок времени После операции 2
 
-function checkPalinrom(str) {
-  let string = str.toLowerCase()
-  let string2 = Array.from(string).reverse().join('')
-  
-  
-  
-    if(string === string2){
-      console.log(`Cajual string -> ${string}`);
-      console.log(`Reverse string -> ${string2}`);
-      return true;
-    }else{
-      console.log(`Cajual string -> ${string}`);
-      console.log(`Reverse string -> ${string2}`);
-      return false;
-    }
+console.log(sum); // выводим результат
+
+console.log(time2.getTime() - time1.getTime()); // количество затрачених милесекунд на операцию 2
+
+
+// Пример с консоль.таймами
+
+console.time('operation') // Включили таймер
+
+let sum2 = 0;
+for(let i=0; i<=1000000;i++){ // 2. Накапливаем сумму
+  sum2+= i;
 }
 
-console.log(checkPalinrom('anna'))
+console.timeEnd('operation')
