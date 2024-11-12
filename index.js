@@ -243,4 +243,56 @@ function capitalizeWords(str) {
 return words.join(' ');
 }
 
-console.log(capitalizeWords('word flower third'));
+// console.log(capitalizeWords('word flower third'));
+
+/*Задача1
+
+Написать фукнцию checkSpam, которая возвращает true, если переданый рядок имеет слова 'xxx'или  'viagra'
+Если запрещенных слов в рядке нету - возвращает false
+*/ 
+
+function checkSpam(str){
+  let otv = null;
+  let string = str.toUpperCase().split(' ')
+  string.forEach((a,b)=> {
+    let danger = a.indexOf('XXX')
+    let viagra = a.indexOf('VIAGRA')
+    if(danger >= 0){
+      console.log(string[b]);
+      console.log(a);
+      console.log(`${danger} xxx -> `);
+      return otv=true
+    } else if(viagra>=0){
+      console.log(a);
+      console.log(`${viagra} Viagra -> `);
+      return otv=true
+    }
+  })
+  if(otv === null){
+    otv=false
+  }
+  return otv
+  
+}
+
+console.log(checkSpam('Wwwxw dsawdsaw viagra viagra  dxxsadw  ewqewqe e weqeqweq '));
+//
+
+function checkPalinrom(str) {
+  let string = str.toLowerCase()
+  let string2 = Array.from(string).reverse().join('')
+  
+  
+  
+    if(string === string2){
+      console.log(`Cajual string -> ${string}`);
+      console.log(`Reverse string -> ${string2}`);
+      return true;
+    }else{
+      console.log(`Cajual string -> ${string}`);
+      console.log(`Reverse string -> ${string2}`);
+      return false;
+    }
+}
+
+console.log(checkPalinrom('anna'))
