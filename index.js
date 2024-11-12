@@ -1,4 +1,3 @@
-// Задание с класрума маисвы \/
 
 // const str = 'ayuioewww';
 // const arr1 = ['a','y','u','o','e','i'];
@@ -20,7 +19,7 @@
 // console.log(res(str,arr1));
 
 
-// variant 2  
+// // variant 2  
 
 // const str = 'ayuioewww';
 // const arr1 = ['a','y','u','o','e','i'];
@@ -298,43 +297,183 @@ Array.from(str)
 // console.log(checkPalinrom('anna'))
 
 
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// const date = new Date(); // по умолчанию будет создана системная дата и время
+// const date1 = new Date('12-31-2023');
+
+// console.log(date1.getDate()); // 31; getDate - используется для получения дня месяца с даты 
+// console.log(date1.getDay()); // 0; getDay - используется для получения дня недели с даты(0- воскресенье.... 6 - субота)
+// console.log(date1.getUTCFullYear()); // 2023; getFullYear - используется для получения года с даты
+// console.log(date.getHours()); // getHours - используется для получения часа с даты
+// console.log(date1.getTime()); // get.Time - используется для получения количества милесекунд, которые прошли с 1 января 1970 года 00:00:00.. 
+
+// // Задача: найти сумму первого 1000000 чисел
+
+// let sum = 0; // 1. Создаем перемену
+
+// const time1 = new Date(); // отрезок часа До начала операции 2
+
+// for(let i=0; i<=1000000;i++){ // 2. Накапливаем сумму
+//   sum+= i
+// }
+
+// const time2 = new Date();// Отрезок времени После операции 2
+
+// console.log(sum); // выводим результат
+
+// console.log(time2.getTime() - time1.getTime()); // количество затрачених милесекунд на операцию 2
+
+
+// // Пример с консоль.таймами
+
+// console.time('operation') // Включили таймер
+
+// let sum2 = 0;
+// for(let i=0; i<=1000000;i++){ // 2. Накапливаем сумму
+//   sum2+= i;
+// }
+
+// console.timeEnd('operation')
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// const value = prompt("Введите высоту и ширину треугольника 1 числом");
+
+// for (let i = 0; i < value; i++) {
+//   let line = "";
+//   for(let j =0;j<value;j++){
+//     if(i===0 || i===value-1 || j===0 || j===value-1 || i===j ){
+//       line+='*'
+//     } else {
+//       line+= ' '
+//     }
+//   }
+//   console.log(line);  
+// }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// function ladar(){
+//   return {
+//     Stair: 1,
+//     up: function(){
+//       this.Stair++
+//       return this;
+//     },
+//     down: function(){
+//       this.Stair--
+//       return this;
+//     },
+//     showStair: function(){
+//       console.log(this.Stair);
+//       return this;
+//     }
+//   }
+// }
+
+// const obj = ladar()
+// console.log(obj);
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+// function formatDate(str){
+//   const arr1 = Array.from(str)
+//   let year = '';
+//   let mouth = '';
+//   let day = '';
+//   for(let i = 0; i<arr1.length;i++){
+//   if(arr1[i]==='-'){
+//     continue
+//   }else if(i<=3){
+//     year+= arr1[i]
+//   } else if(i>4 && i<7){
+//     day+= arr1[i]
+//   } else if(i>=8){
+//     mouth+= arr1[i]
+//   }
+// }
+// return `${day}.${mouth}.${year}`
 
-const date = new Date(); // по умолчанию будет создана системная дата и время
-const date1 = new Date('12-31-2023');
+// }
 
-console.log(date1.getDate()); // 31; getDate - используется для получения дня месяца с даты 
-console.log(date1.getDay()); // 0; getDay - используется для получения дня недели с даты(0- воскресенье.... 6 - субота)
-console.log(date1.getUTCFullYear()); // 2023; getFullYear - используется для получения года с даты
-console.log(date.getHours()); // getHours - используется для получения часа с даты
-console.log(date1.getTime()); // get.Time - используется для получения количества милесекунд, которые прошли с 1 января 1970 года 00:00:00.. 
 
-// Задача: найти сумму первого 1000000 чисел
 
-let sum = 0; // 1. Создаем перемену
 
-const time1 = new Date(); // отрезок часа До начала операции 2
+// 15(4)
+// function formatDate(str){
+//   const arr= str.split('-');
+//   return `${arr[0]}.${arr[1]}.${arr[2]}`
+// }
 
-for(let i=0; i<=1000000;i++){ // 2. Накапливаем сумму
-  sum+= i
+
+// console.log(formatDate('2021-22-09'));
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/* 
+Задача: напистаь функцию, которая возводит число в некую степень и принимает 2 аргумента
+- число, которая нужно возвести в степень
+- степень, в которую нужно возвести в степень
+*/
+
+// Итеративное мышление
+
+function pow(x,n){
+  let result =1; // переменная в которой мы будем накапливать добуток
+  // умнажаем result на x, n раз в цикле 
+  for(let i = 0; i<n; i++){
+    result*= x
+  }
+  return result;
 }
 
-const time2 = new Date();// Отрезок времени После операции 2
+console.log(pow(2,3));
 
-console.log(sum); // выводим результат
+// Рекурсивное мышление: спращаем себе задание и вызываем функцию саму себе
 
-console.log(time2.getTime() - time1.getTime()); // количество затрачених милесекунд на операцию 2
-
-
-// Пример с консоль.таймами
-
-console.time('operation') // Включили таймер
-
-let sum2 = 0;
-for(let i=0; i<=1000000;i++){ // 2. Накапливаем сумму
-  sum2+= i;
+function powRecursive(x,n){
+  if(n === 1){
+    return x;
+  } else {
+    return x * powRecursive(x,n - 1)
+  }
 }
 
-console.timeEnd('operation')
+console.log(powRecursive(2,4));
+
+
+/*            if n === 1 -->> x
+            /
+powRecursive(x,n) = 
+            \
+              else --->> x * powRecursive(x, n - 1)
+*/
+
+// x^n = x * x^(n-1)
+
+/*
+
+1. powRecursive(2, 4) --->>> 2 * powRecursive(2, 3)
+2. powRecursive(2, 3) --->>> 2 * powRecursive(2, 2)
+3. powRecursive(2, 2) --->>> 2 * powRecursive(2, 1)
+4. powRecursive(2, 1) --->>> 2
+
+*/
+
+/*
+
+Особливості роботи:
+1. Рекурсія робить виклик функції простішим, потім ще більш простішим і так далі, доки результат не стане очевидним (досягнення бази рекурсії)
+2. Рекурсивне рішення, як правило, коротше ніж ітераційне
+
+*/
+
+// Кількість вкладених викликів - глибина рекурсії
+
+// Ми стремимся до того, що глибина рекурсії не має перевищувати 10000 викликів
