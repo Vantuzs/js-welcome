@@ -415,14 +415,36 @@ Array.from(str)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+ // Задача написать функцию суммы додатних чисел  
 
-/**
- * Возвращает x в степени n
- * 
- * @param {number} x число которое нужно вознести в степень
- * @param {number} n степень, в которую нужно вознести
- * @return {number} x вознесённое в n степень
- */
- function pow(x,n){
-  return x**n;
- }
+ /**
+  * Функция находит сумму двух положительных чисел
+  * @param {number} a число 1 
+  * @param {number} b число 2
+  * @returns {number} сумма
+  * @throws {RangeError} если а или b - не положительными числами
+  * @throws {TypeError} если а или b - не число
+  */
+ function sumOfPositiveNumber(a,b) {
+  if(a<0 || b<0){
+    // должны "выкинуть ошибку"
+    throw new RangeError('Какоето с чисел меньше 0');
+  } 
+  if(typeof a !== 'number' || typeof b !== 'number'){
+    throw new TypeError('Параметры a и b должны быть числами! ')
+  }
+  return console.log(a+b);
+}
+
+ try {
+  // прописываем какойто код, ожидая что тут может выйти ошибка
+  sumOfPositiveNumber(1,-2);
+ } 
+  catch(error){
+  console.dir(error);
+ } 
+
+ console.log('Usual code flow');
+
+ // throw <обьект_ошибки>
+ // throw - кинуть 
