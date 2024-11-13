@@ -416,18 +416,13 @@ Array.from(str)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-//1
-function fibanacci(n){
-  console.log(n);
-  if(n === 0){
-    return 0;
-  } 
-  if(n === 1){
-    return 1;
-  }else{
-    return fibanacci(n-1) + fibanacci(n-2)
-  }
-}
-
-console.log(fibanacci(10));
+/**
+ * Возвращает x в степени n
+ * 
+ * @param {number} x число которое нужно вознести в степень
+ * @param {number} n степень, в которую нужно вознести
+ * @return {number} x вознесённое в n степень
+ */
+ function pow(x,n){
+  return x**n;
+ }
