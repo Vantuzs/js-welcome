@@ -51,9 +51,12 @@ const user2 = new MyClass('Dari', 'Dane', '34');
 
 */
 
+const MIN_ZP = 7100;
+const WORK_DAYS = 21;
+const MIN_RATE = MIN_ZP / WORK_DAYS
 
 class Worker{
-    constructor(name,lastName,stavka,nowDay){
+    constructor(name,lastName,stavka = MIN_RATE,nowDay = WORK_DAYS){
         this.name = name;
         this.lastName = lastName;
         this.stavka = stavka;
@@ -66,5 +69,18 @@ class Worker{
 }
 
 
-const worker1 = new Worker('Djo','Fisher',20,31);
+const worker1 = new Worker('Djo','Fisher');
 const worker2 = new Worker('Billy','Crew',500000,31);
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+/* Параметры по умолчанию */
+
+function sum(a = 10,b = 5) {
+    return a+b;
+}
+
+console.log(sum());
