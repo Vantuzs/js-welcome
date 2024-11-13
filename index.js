@@ -507,12 +507,16 @@ F(n) = F(n-1) + F(n-2)
 */
 
 
-function fibanacci(num,zero){
-  if(num === 1){
-    return zero
-  } else{
-    return zero * fibanacci(num-1,zero++)
+function fibanacci(n){
+  console.log(n);
+  if(n === 0){
+    return 0;
+  } 
+  if(n === 1){
+    return 1;
+  }else{
+    return fibanacci(n-1) + fibanacci(n-2)
   }
 }
 
-console.log(fibanacci(100));
+console.log(fibanacci(10));
