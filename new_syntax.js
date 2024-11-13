@@ -42,3 +42,29 @@ const user2 = new MyClass('Dari', 'Dane', '34');
 
 
 */
+
+/* 
+
+Написать клас Worker.
+У работника есть имя, фамилия, ставка за рабочий день, количество отработаных дней в этом месяце
+Создать метод который возвращает зарплату этого работника за нынешний метод
+
+*/
+
+
+class Worker{
+    constructor(name,lastName,stavka,nowDay){
+        this.name = name;
+        this.lastName = lastName;
+        this.stavka = stavka;
+        this.nowDay = nowDay; 
+    }
+
+    stavkaSum(){
+        return `${this.stavka * this.nowDay}`;
+    }
+}
+
+
+const worker1 = new Worker('Djo','Fisher',20,31);
+const worker2 = new Worker('Billy','Crew',500000,31);
