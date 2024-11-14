@@ -79,8 +79,50 @@ const worker2 = new Worker('Billy','Crew',500000,31);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Параметры по умолчанию */
 
-function sum(a = 10,b = 5) {
-    return a+b;
+// function sum(a = 10,b = 5) {
+//     return a+b;
+// }
+
+// console.log(sum());
+
+
+
+/* 
+
+Клас авто
+Клас бензина
+
+Задача: расчитать загальный вес авто (вес авто + вес бенза)
+                                                    обьем*плотность
+*/
+
+
+class Fuel {
+    constructor(volume, density){
+        this.volume = volume;
+        this.density = density;
+    }
+
+    getWeight(){
+        return this.volume * this.density
+    }
 }
 
-console.log(sum());
+const benzin = new Fuel(50,0.9);
+
+
+class Auto {
+    constructor(name, ownWeight, fuel){
+        this.name = name;
+        this.ownWeight = ownWeight;
+        this.fuel = fuel;
+    }
+
+    // мутод который обчисливает полный вес авто: его власта ваага ownWeight + вага палива
+
+    getFullWeight() {
+        return this.ownWeight + this.fuel.getWeight();
+    }
+}
+
+const bmw = new Auto('BMW', 4000, benzin);
