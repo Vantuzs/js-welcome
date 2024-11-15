@@ -54,53 +54,101 @@ const user2 = new MyClass('Dari', 'Dane', '34');
 const MIN_ZP = 7100;
 const WORK_DAYS = 21;
 const MIN_RATE = MIN_ZP / WORK_DAYS
+const BASE_COEFICIENT = 0;
 
 class Worker{
-    constructor(name,lastName,rate = MIN_RATE,day = WORK_DAYS,coefficient){
-        if(name === '' || lastName === ''){
-            throw new Error('Name and lastName must be a valid')
-        }
+    constructor(name,lastName,rate = MIN_RATE,days = WORK_DAYS,coefficient= BASE_COEFICIENT){
         this.name = name;
         this.lastName = lastName;
-        if(typeof rate !== 'number' || typeof day !== 'number'){
-            throw new TypeError('Rate and days must be a number')
-        }
-
-        if(rate<0){
-            throw new RangeError('Rate must be a positive number')
-        }
-
-        this._rate = Number(rate.toFixed(2));
-        
-        if(day<0 || day>31){
-            throw new RangeError('Days must be in 0 to 31');
-        }
-
-        this.day = day; 
+        this.rate = Number(rate.toFixed(2)); 
+        this.days = days; 
         this.coefficient = coefficient;
     }
 
-    getRate(){
-        return this._rate;
-    }
+    /* 
+        Сеттер - метод для утсановление значения
+        Геттер - метод для получения значения
+    */
 
-    setRate(value){
-        if(typeof value !== 'number'){
+   set rate(newValue){ // название сеттеру - название приватного поля БЕЗ знака нижнего подкресливания
+        if(newValue < 0){
+            throw new RangeError('Rate must be a positive number');
+        }
+        if(typeof newValue !== 'number'){
             throw new TypeError('Rate must be a number')
         }
 
-        if(value<0){
-            throw new RangeError('Rate must be a positive number')
-        }
-        this._rate = value;
+        // НО в середине сеттера мы работаем с приватным полем
+        this._rate = newValue;
         return this;
+   }
+
+   get rate() { // название геттера - название приватного поля БЕЗ знака нижнего подчесрикивания
+    // НО в середине геттера мы работаем с приватным полем
+    return this._rate;
+   }
+
+   set name(newValue){
+    if(typeof newValue !== 'string'){
+        throw new TypeError('Nema must be a string')
     }
+    if(newValue === ''){    
+        throw new Error('Name must be a valid')
+    }
+    this._name = newValue;
+   }
+
+   get name(){
+    return this._name;
+   }
+
+   set lastName(newValue){
+    if(typeof newValue !== 'string'){
+        throw new TypeError('lastName must be a string')
+    }
+    if(newValue === ''){    
+        throw new Error('lastName must be a valid')
+    }
+    this._lastName = newValue;
+   }
+
+   get lastName(){
+    return this._lastName
+   }
+
+   set days(newValue){
+    if(newValue<0 || newValue>31){
+        throw new RangeError('Days must be a range 0-31')
+    }
+    if(typeof newValue !== 'number'){
+        throw new TypeError('Days must be a number')
+    }
+    this._days = newValue;
+   }
+
+   get days(){
+    return this._days
+   }
+
+   set coefficient(newValue){
+    if(newValue<0){
+        throw new RangeError('Coefiecient must be a >0')
+    }
+    if(typeof newValue!=='number'){
+        throw new TypeError('Coeffiecietn mus be a number')
+    }
+    this._coefficient = newValue;
+   }
+
+   get coefficient(){
+    return this._coefficient
+   }
 
     rateSum(){
-        if(this.coefficient){
-        return this._rate * this.day * this.coefficient;
+        if(this.coefficient && this.coefficient !== 0){
+        return this.rate * this.days * this.coefficient;
         } else{
-            return this._rate * this.day
+            return this.rate * this.days
         }
     } 
 }
@@ -109,7 +157,12 @@ class Worker{
 const worker1 = new Worker('John','Doe');
 const worker2 = new Worker('Billy','Crew',500,31,2);
 
+/* 
 
+В середине класса геттеры/сеттеры работают с приватными полями.
+А при обращению к класу изВне мы работаетм с геттерами/сеттерами
+
+*/
 
 
 
