@@ -28,6 +28,6 @@ function prostNum(num){
 
 for(let i= 0; i<arr1.length; i++){
     if(prostNum(arr1[i])){
-        console.log(arr1[i]);
+        // console.log(arr1[i]);
     }
 }

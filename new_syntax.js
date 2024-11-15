@@ -56,21 +56,58 @@ const WORK_DAYS = 21;
 const MIN_RATE = MIN_ZP / WORK_DAYS
 
 class Worker{
-    constructor(name,lastName,stavka = MIN_RATE,nowDay = WORK_DAYS){
+    constructor(name,lastName,rate = MIN_RATE,day = WORK_DAYS,coefficient){
+        if(name === '' || lastName === ''){
+            throw new Error('Name and lastName must be a valid')
+        }
         this.name = name;
         this.lastName = lastName;
-        this.stavka = stavka;
-        this.nowDay = nowDay; 
+        if(typeof rate !== 'number' || typeof day !== 'number'){
+            throw new TypeError('Rate and days must be a number')
+        }
+
+        if(rate<0){
+            throw new RangeError('Rate must be a positive number')
+        }
+
+        this._rate = Number(rate.toFixed(2));
+        
+        if(day<0 || day>31){
+            throw new RangeError('Days must be in 0 to 31');
+        }
+
+        this.day = day; 
+        this.coefficient = coefficient;
     }
 
-    stavkaSum(){
-        return `${this.stavka * this.nowDay}`;
+    getRate(){
+        return this._rate;
     }
+
+    setRate(value){
+        if(typeof value !== 'number'){
+            throw new TypeError('Rate must be a number')
+        }
+
+        if(value<0){
+            throw new RangeError('Rate must be a positive number')
+        }
+        this._rate = value;
+        return this;
+    }
+
+    rateSum(){
+        if(this.coefficient){
+        return this._rate * this.day * this.coefficient;
+        } else{
+            return this._rate * this.day
+        }
+    } 
 }
 
 
-const worker1 = new Worker('Djo','Fisher');
-const worker2 = new Worker('Billy','Crew',500000,31);
+const worker1 = new Worker('John','Doe');
+const worker2 = new Worker('Billy','Crew',500,31,2);
 
 
 
