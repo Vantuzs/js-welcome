@@ -415,68 +415,168 @@ Array.from(str)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-class User {
-    constructor(name, surname, age){
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
+/* 
+
+Клас Человек и похидный клас Студент
+
+1. Создайте базовы клас людина с такими властивостями:
+- ФИО
+- Возраст
+- Пол
+
+
+2. Создайте похидный класс Студент, который наследует властивости класа Человек
+Добавте к класу Студент такие дополнительный властивости:
+
+- Год Вступу
+- Номер зачетки
+- Средний бал
+
+
+3. Реалезуйте следующие методы
+
+В класе Человек
+- greeting()- этот метод возвращает приветствие для человека, в зависимости от ее пола(Mr. or Mrs.)
+
+В классе Сутдента:
+- isExcellentStudent()- этот метод проверяет, есть ли студент отличныиком на основе его среднего бала.
+Если средний бал студент выший или равный 90, то метод вернет true, в другом случае - false
+
+
+
+*/
+
+
+class Person {
+    constructor(fullName, birthYear, gender){
+        this.fullName = fullName;
+        this.birthYear = birthYear;
+        this.gender = gender;
     }
 
-    getFullName(){
-        return `${this.name} ${this.surname}`;
+    // Setters
+
+    set fullName(value){
+        if(typeof value !== 'string'){
+            throw new TypeError('Fullname must be a string');
+        }
+
+        this._fullName = value;
+    }
+
+    set birthYear(value){
+        // тут по хорошему рахунку нужно валидировать дату
+        this._birthYear = value;
+    }
+
+    set gender(value){
+        if(typeof value !== 'string'){
+            throw new TypeError('Gender must be a string')
+        }
+         
+        this._gender = value
+    }
+
+    // Getters
+
+    get fullName(){
+        return this._fullName;
+    }
+
+    get birthYear(){
+        return this._birthYear;
+    }
+
+    get gender(){
+        return this._gender;
+    }
+
+    // Methods
+
+    greeting(){
+        let prefix; // Мы в эту переменную будем ложить или "mr." или "Mrs." в зависимости от гендера
+
+        if(this.gender === 'male'){
+            prefix = 'Mr.'
+        } else if(this.gender === 'female'){
+            prefix = 'Mrs.'
+        } else {
+            prefix = prompt('How should we address you?')
+        }
+
+        return `Hellow ${prefix} ${this.fullName}`
     }
 }
 
 
-class Moderator extends User{
-    constructor(name,surname,age){
-        super(name,surname,age)
+class Student extends Person{
+    constructor(fullName, birthYear, gender, admissionYear, studentId, averageGrade){
+        super(fullName, birthYear, gender)
+        this.admissionYear = admissionYear;
+        this.studentId = studentId;
+        this.averageGrade = averageGrade;
     }
 
-    getFullName(){
-        return `${this.name} ${this.surname} -->> ${this.age}`
+    // Setters
+
+    set admissionYear(value){
+    // тут по хорошему рахунку нужно валидировать дату
+    
+    this._admissionYear = value;
     }
 
-    createPost(text){
-        console.log('Post seccessfully created!');
+    set studentId(value){
+        this._studentId = value;
     }
 
-    deletePost(id){
-        console.log('Post seccessfully deleted!');
+    set averageGrade(value){
+        if(typeof value !== 'number'){
+            throw new TypeError('Average grate must be a number')
+        }
+        if(value > 100 || value <0){
+            throw new RangeError('Average grate must [0;100]')
+        }
 
+        this._averageGrade = value
+        
+    }
+
+    // Getters
+
+    get admissionYear(){
+        return this._admissionYear;
+    }
+
+    get studentId(){
+        return this._studentId;
+    }
+
+    get averageGrade(){
+        return this._averageGrade
+    }
+
+    // Methods
+
+    isExcellentStudent(){
+        // Variat 1
+        // if(this.averageGrade >= 90){
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        // условие ? что делаем если true : что делаем если false
+        
+        // Variat 2
+        // const resutl = this.averageGrade >= 90 ? true : false
+        // return resutl;
+
+        // Variat 3
+        return this.averageGrade>=90
     }
 }
 
-class Admin extends Moderator {
-    constructor(name,surname,age, uniquePrefix){
-        super(name,surname,age)
-        this.uniquePrefix = uniquePrefix;
-    }
+const ivanov = new Person('Иванов Иван Иванович', 1985, 'male');
 
-    makeModerator(userId){
-        console.log('Moderator successfully sett!');
-    }
+const petrov = new Person('Петров Петр Петрович', 1985, 'Non binary');
 
-    deleteModerator(userId){
-        console.log('Moderator successfully deleted!');
-    }
-
-}
-
-class Support extends Admin{
-    constructor(name,uniquePrefix){
-        super(name,null, null,uniquePrefix)
-    }
-
-    getFullName(){
-        return `${this.name} -->> ${this.uniquePrefix}`
-    }
-}
-
-const user = new User('John', 'Doe', 32);
-
-const moderator = new Moderator('Alex', 'Traine' , 43)
-
-const admin = new Admin('Jane', 'Doe', 34, 'Head of Sales')
-
-const support = new Support('William', 'Head of Support')
+const student = new Student('Сидоров Сидр Сидорович', 1999, 'male', 2021, 'A12345', 60);
