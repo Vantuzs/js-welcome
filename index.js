@@ -573,10 +573,47 @@ class Student extends Person{
         // Variat 3
         return this.averageGrade>=90
     }
+
+    static calculateAverageGrate(studentsArray){
+        if(studentsArray.length === 0){
+            return 0;
+        }
+        // variant 1
+        // let sum = 0;
+        // for(let i = 0; i< studentsArray.length;i++){
+        //    sum+=studentsArray[i].averageGrade
+        // }
+        // return console.log(sum/studentsArray.length);
+        
+        // variant 2
+        /* let sum = 0;
+        studentsArray.forEach((a)=> sum+=a.averageGrade/studentsArray.length,0)
+        // return console.log(sum/studentsArray.length);    
+        return sum */
+
+        // variatn 3
+        return studentsArray.reduce((acum,student) => acum + student.averageGrade/studentsArray.length, 0)
+        
+    }
 }
 
 const ivanov = new Person('Иванов Иван Иванович', 1985, 'male');
 
 const petrov = new Person('Петров Петр Петрович', 1985, 'Non binary');
 
-const student = new Student('Сидоров Сидр Сидорович', 1999, 'male', 2021, 'A12345', 60);
+const student1 = new Student('Сидоров Сидр Сидорович', 1999, 'male', 2021, 'A12-F-345', 95);
+const student2 = new Student('John Doe', 1999, 'male', 2021, 'A12-F-346', 85);
+const student3 = new Student('Jane Doe', 2000, 'male', 2022, 'A13-F-258', 70);
+const student4 = new Student('Josh Doe', 2000, 'male', 2022, 'A13-F-259', 77);
+
+const students = [student1, student2, student3, student4,];
+
+/*
+Домашня робота
+
+Реалізувати статичний метод в класі Students
+
+Цей метод приймає масив єкземплярів класу Students (174 строчка) обчислює і повертає як результат роботи середній бал всіх студентів з масиву
+
+*/
+console.log(Student.calculateAverageGrate(students));
