@@ -444,176 +444,154 @@ Array.from(str)
 
 
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+*/
+// OOП
+
+/* 
+
+1. ООП збудоване навколо обьктов
+2. Подил нужен для того, что бы можно было создавать, обслуживать и переделывать какието части програмы не затрагивая другие
+3. Сенс обькты в том, что он имеет какието методы, тоесть он чтото умеет делать, но при этом, другие обьекты они не знают как он это делает 
+4. Обькт имеет понятиея Атрибута и Метода
+Атрибут - любые данный которые хранятся всередине обькта
+Методы - любые действия который можно выполнять с обьектом, атрибутами обьекта 
+Атрибуты обычно выражаются переменными, а методы - функциями
+5. Обьекты можно создавать за шаблоном - такие шаблоны называют класами
+
 */
 
 
-class Person {
-    constructor(fullName, birthYear, gender){
-        this.fullName = fullName;
-        this.birthYear = birthYear;
-        this.gender = gender;
+// Геттеры и сеттери - аксессори (от англ. access - доступ)
+
+
+// Абстракция - когда мы сосредотачиваемся только на суттэвих для задания деталях(когда описуем обькт) и игнорируем все другое
+// Чем меньше характеристик у обькта, тем лутше абстракция, но ключевые характеристики нельзя убирать
+
+// что бы работать с абстракциями, используют интерафейс
+// Интерфейс - способ взаимодействия с обьктом, который вызначае, какие операции можно сделать с этим обьектом и какие данный можно получить или изсенить
+
+// Инкапсуляция - процес обьединения данных и методов в 1 обьекте и скрытие деталей реалезации от пользователя
+
+// В чем отличие между инкапсуляциэю и абстакцией?
+// Инкапсуляция сосредоточена на организации и скрытие деталий реализации обькта
+// Абстракция спрощуэ сложность систем путем выдиления ключевых аспектов и скрытии незначных деталей
+
+
+
+// Спадкування - возможность к копированию, возможность описать новый класс на основе уже сущетсвующего
+
+
+
+class Figure{
+    constructor(sideQuantiti){
+        this.sideQuantiti = sideQuantiti;
     }
 
-    // Setters
-
-    set fullName(value){
-        if(typeof value !== 'string'){
-            throw new TypeError('Fullname must be a string');
-        }
-
-        this._fullName = value;
-    }
-
-    set birthYear(value){
-        // тут по хорошему рахунку нужно валидировать дату
-        this._birthYear = value;
-    }
-
-    set gender(value){
-        if(typeof value !== 'string'){
-            throw new TypeError('Gender must be a string')
-        }
-         
-        this._gender = value
-    }
-
-    // Getters
-
-    get fullName(){
-        return this._fullName;
-    }
-
-    get birthYear(){
-        return this._birthYear;
-    }
-
-    get gender(){
-        return this._gender;
-    }
-
-    // Methods
-
-    greeting(){
-        let prefix; // Мы в эту переменную будем ложить или "mr." или "Mrs." в зависимости от гендера
-
-        if(this.gender === 'male'){
-            prefix = 'Mr.'
-        } else if(this.gender === 'female'){
-            prefix = 'Mrs.'
-        } else {
-            prefix = prompt('How should we address you?')
-        }
-
-        return `Hellow ${prefix} ${this.fullName}`
-    }
-}
-
-
-class Student extends Person{
-    constructor(fullName, birthYear, gender, admissionYear, studentId, averageGrade){
-        super(fullName, birthYear, gender)
-        this.admissionYear = admissionYear;
-        this.studentId = studentId;
-        this.averageGrade = averageGrade;
-    }
-
-    // Setters
-
-    set admissionYear(value){
-    // тут по хорошему рахунку нужно валидировать дату
-    
-    this._admissionYear = value;
-    }
-
-    set studentId(value){
-        this._studentId = value;
-    }
-
-    set averageGrade(value){
+    set sideQuantiti(value){
         if(typeof value !== 'number'){
-            throw new TypeError('Average grate must be a number')
+            throw new TypeError('Side must be a number')
         }
-        if(value > 100 || value <0){
-            throw new RangeError('Average grate must [0;100]')
+        if(value < 0){
+            throw new RangeError('Side cannot be less than 0')
         }
-
-        this._averageGrade = value
         
+        this._sideQuantiti = value
     }
 
-    // Getters
-
-    get admissionYear(){
-        return this._admissionYear;
+    get sideQuantiti(){
+        return this._sideQuantiti
     }
 
-    get studentId(){
-        return this._studentId;
-    }
+    getArea(){
 
-    get averageGrade(){
-        return this._averageGrade
-    }
-
-    // Methods
-
-    isExcellentStudent(){
-        // Variat 1
-        // if(this.averageGrade >= 90){
-        //     return true;
-        // } else {
-        //     return false;
-        // }
-        // условие ? что делаем если true : что делаем если false
-        
-        // Variat 2
-        // const resutl = this.averageGrade >= 90 ? true : false
-        // return resutl;
-
-        // Variat 3
-        return this.averageGrade>=90
-    }
-
-    static calculateAverageGrate(studentsArray){
-        if(studentsArray.length === 0){
-            return 0;
-        }
-        // variant 1
-        // let sum = 0;
-        // for(let i = 0; i< studentsArray.length;i++){
-        //    sum+=studentsArray[i].averageGrade
-        // }
-        // return console.log(sum/studentsArray.length);
-        
-        // variant 2
-        /* let sum = 0;
-        studentsArray.forEach((a)=> sum+=a.averageGrade/studentsArray.length,0)
-        // return console.log(sum/studentsArray.length);    
-        return sum */
-
-        // variatn 3
-        return studentsArray.reduce((acum,student) => acum + student.averageGrade/studentsArray.length, 0)
-        
     }
 }
 
-const ivanov = new Person('Иванов Иван Иванович', 1985, 'male');
+class Triangle extends Figure{
+    constructor(a,b,angle){
+        super(3);
+        this.a = a;
+        this.b = b;
+        this.angle = angle;
+    }
 
-const petrov = new Person('Петров Петр Петрович', 1985, 'Non binary');
+    set a(value){
+        if(typeof value !== 'number'){
+            throw new TypeError('Side must be a number')
+        }
+        if(value < 0){
+            throw new RangeError('Side cannot be less than 0')
+        }
 
-const student1 = new Student('Сидоров Сидр Сидорович', 1999, 'male', 2021, 'A12-F-345', 95);
-const student2 = new Student('John Doe', 1999, 'male', 2021, 'A12-F-346', 85);
-const student3 = new Student('Jane Doe', 2000, 'male', 2022, 'A13-F-258', 70);
-const student4 = new Student('Josh Doe', 2000, 'male', 2022, 'A13-F-259', 77);
+        this._a = value
+    }
 
-const students = [student1, student2, student3, student4,];
+    get a(){
+        return this._a
+    }
 
-/*
-Домашня робота
+    set b(value){
+        if(typeof value !== 'number'){
+            throw new TypeError('Side must be a number')
+        }
+        if(value < 0){
+            throw new RangeError('Side cannot be less than 0')
+        }
 
-Реалізувати статичний метод в класі Students
+        this._b = value
+    }
 
-Цей метод приймає масив єкземплярів класу Students (174 строчка) обчислює і повертає як результат роботи середній бал всіх студентів з масиву
+    get b(){
+        return this._b
+    }
 
-*/
-console.log(Student.calculateAverageGrate(students));
+    set angle(value){
+        if(typeof value !== 'number'){
+            throw new TypeError('Side must be a number')
+        }
+        if(value < 0){
+            throw new RangeError('Side cannot be less than 0')
+        }
+
+        this._angle = value
+    }
+
+    get angle(){
+        return this._angle
+    }
+
+    getArea(){
+        return this.a * this.b * Math.sin(this.angle)
+    }
+}
+
+
+class Square extends Figure{
+    constructor(a){
+        super(4);
+        this.a = a;
+    }
+    set a(value){
+        if(typeof value !== 'number'){
+            throw new TypeError('Side must be a number')
+        }
+        if(value < 0){
+            throw new RangeError('Side cannot be less than 0')
+        }
+
+        this._a = value
+    }
+
+    get a(){
+        return this._a
+    }
+    getArea(){
+        return this.a**2
+    }
+}
+
+const square = new Square(4);
