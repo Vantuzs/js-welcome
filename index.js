@@ -484,9 +484,11 @@ Array.from(str)
 
 // Спадкування - возможность к копированию, возможность описать новый класс на основе уже сущетсвующего
 
+// Полиморфизм - дозволяе использовать общий интерфейс (методы базового класа) через екземпляры похидних класов
+// Суть полифморфизма полягае в том, что мы можем одн  и тотже самый код использовать для обьектов разных класов
 
 
-class Figure{
+class Figure{ // абстрактный клас(клас шаблон)
     constructor(sideQuantiti){
         this.sideQuantiti = sideQuantiti;
     }
@@ -506,12 +508,12 @@ class Figure{
         return this._sideQuantiti
     }
 
-    getArea(){
+    getArea(){ // абстрактный метод
 
     }
 }
 
-class Triangle extends Figure{
+class Triangle extends Figure{ // 
     constructor(a,b,angle){
         super(3);
         this.a = a;
@@ -564,7 +566,7 @@ class Triangle extends Figure{
         return this._angle
     }
 
-    getArea(){
+    getArea(){ // виртуальный метод
         return this.a * this.b * Math.sin(this.angle)
     }
 }
@@ -589,9 +591,41 @@ class Square extends Figure{
     get a(){
         return this._a
     }
-    getArea(){
+    getArea(){ // виртуальный метод
         return this.a**2
     }
 }
 
 const square = new Square(4);
+const triangle = new Triangle(3,5,2)
+
+// Задача: написать ОКРЕМУ функцию, которая будет принимать обьект какойто фигуры и будет вызывать у этой фигуры метод getArea
+
+function getFigureArea(figure){
+    if(figure instanceof Figure){
+        return figure.getArea();
+    }
+    throw new TypeError('параметр не есть фигура ЕЖЕ')
+}
+
+console.log(getFigureArea(square));
+
+
+/* 
+
+Переваги
+
+1. Визуально код становиться проще
+2. Меньше одинакового кода
+3. Сложные програмы пишуться проще
+4. Увеличивается скорость написания (достаточно быстро можем прийти до минимально работающего простотипа)
+
+
+
+НЕдолики
+
+1. Сложно начать работать
+2. Требует больше памяти 
+3. Иногда продуктивность кода может быть довольно низкой
+( ссучасными мощьностями процесоров недолик №3 невалируется)
+*/
