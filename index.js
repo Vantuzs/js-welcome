@@ -488,127 +488,127 @@ Array.from(str)
 // Суть полифморфизма полягае в том, что мы можем одн  и тотже самый код использовать для обьектов разных класов
 
 
-class Figure{ // абстрактный клас(клас шаблон)
-    constructor(sideQuantiti){
-        this.sideQuantiti = sideQuantiti;
-    }
+// class Figure{ // абстрактный клас(клас шаблон)
+//     constructor(sideQuantiti){
+//         this.sideQuantiti = sideQuantiti;
+//     }
 
-    set sideQuantiti(value){
-        if(typeof value !== 'number'){
-            throw new TypeError('Side must be a number')
-        }
-        if(value < 0){
-            throw new RangeError('Side cannot be less than 0')
-        }
+//     set sideQuantiti(value){
+//         if(typeof value !== 'number'){
+//             throw new TypeError('Side must be a number')
+//         }
+//         if(value < 0){
+//             throw new RangeError('Side cannot be less than 0')
+//         }
         
-        this._sideQuantiti = value
-    }
+//         this._sideQuantiti = value
+//     }
 
-    get sideQuantiti(){
-        return this._sideQuantiti
-    }
+//     get sideQuantiti(){
+//         return this._sideQuantiti
+//     }
 
-    getArea(){ // абстрактный метод
+//     getArea(){ // абстрактный метод
 
-    }
-}
+//     }
+// }
 
-class Triangle extends Figure{ // 
-    constructor(a,b,angle){
-        super(3);
-        this.a = a;
-        this.b = b;
-        this.angle = angle;
-    }
+// class Triangle extends Figure{ // 
+//     constructor(a,b,angle){
+//         super(3);
+//         this.a = a;
+//         this.b = b;
+//         this.angle = angle;
+//     }
 
-    set a(value){
-        if(typeof value !== 'number'){
-            throw new TypeError('Side must be a number')
-        }
-        if(value < 0){
-            throw new RangeError('Side cannot be less than 0')
-        }
+//     set a(value){
+//         if(typeof value !== 'number'){
+//             throw new TypeError('Side must be a number')
+//         }
+//         if(value < 0){
+//             throw new RangeError('Side cannot be less than 0')
+//         }
 
-        this._a = value
-    }
+//         this._a = value
+//     }
 
-    get a(){
-        return this._a
-    }
+//     get a(){
+//         return this._a
+//     }
 
-    set b(value){
-        if(typeof value !== 'number'){
-            throw new TypeError('Side must be a number')
-        }
-        if(value < 0){
-            throw new RangeError('Side cannot be less than 0')
-        }
+//     set b(value){
+//         if(typeof value !== 'number'){
+//             throw new TypeError('Side must be a number')
+//         }
+//         if(value < 0){
+//             throw new RangeError('Side cannot be less than 0')
+//         }
 
-        this._b = value
-    }
+//         this._b = value
+//     }
 
-    get b(){
-        return this._b
-    }
+//     get b(){
+//         return this._b
+//     }
 
-    set angle(value){
-        if(typeof value !== 'number'){
-            throw new TypeError('Side must be a number')
-        }
-        if(value < 0){
-            throw new RangeError('Side cannot be less than 0')
-        }
+//     set angle(value){
+//         if(typeof value !== 'number'){
+//             throw new TypeError('Side must be a number')
+//         }
+//         if(value < 0){
+//             throw new RangeError('Side cannot be less than 0')
+//         }
 
-        this._angle = value
-    }
+//         this._angle = value
+//     }
 
-    get angle(){
-        return this._angle
-    }
+//     get angle(){
+//         return this._angle
+//     }
 
-    getArea(){ // виртуальный метод
-        return this.a * this.b * Math.sin(this.angle)
-    }
-}
+//     getArea(){ // виртуальный метод
+//         return this.a * this.b * Math.sin(this.angle)
+//     }
+// }
 
 
-class Square extends Figure{
-    constructor(a){
-        super(4);
-        this.a = a;
-    }
-    set a(value){
-        if(typeof value !== 'number'){
-            throw new TypeError('Side must be a number')
-        }
-        if(value < 0){
-            throw new RangeError('Side cannot be less than 0')
-        }
+// class Square extends Figure{
+//     constructor(a){
+//         super(4);
+//         this.a = a;
+//     }
+//     set a(value){
+//         if(typeof value !== 'number'){
+//             throw new TypeError('Side must be a number')
+//         }
+//         if(value < 0){
+//             throw new RangeError('Side cannot be less than 0')
+//         }
 
-        this._a = value
-    }
+//         this._a = value
+//     }
 
-    get a(){
-        return this._a
-    }
-    getArea(){ // виртуальный метод
-        return this.a**2
-    }
-}
+//     get a(){
+//         return this._a
+//     }
+//     getArea(){ // виртуальный метод
+//         return this.a**2
+//     }
+// }
 
-const square = new Square(4);
-const triangle = new Triangle(3,5,2)
+// const square = new Square(4);
+// const triangle = new Triangle(3,5,2)
 
 // Задача: написать ОКРЕМУ функцию, которая будет принимать обьект какойто фигуры и будет вызывать у этой фигуры метод getArea
 
-function getFigureArea(figure){
-    if(figure instanceof Figure){
-        return figure.getArea();
-    }
-    throw new TypeError('параметр не есть фигура ЕЖЕ')
-}
+// function getFigureArea(figure){
+//     if(figure instanceof Figure){
+//         return figure.getArea();
+//     }
+//     throw new TypeError('параметр не есть фигура ЕЖЕ')
+// }
 
-console.log(getFigureArea(square));
+// console.log(getFigureArea(square));
 
 
 /* 
@@ -629,3 +629,75 @@ console.log(getFigureArea(square));
 3. Иногда продуктивность кода может быть довольно низкой
 ( ссучасными мощьностями процесоров недолик №3 невалируется)
 */
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/* 
+
+Фабричный метод - способ создавать обьеты, который позволяет нам не указывать конкретный клас обьекта
+Используем специальную "фабрику" для создания обьктов.
+Фабрика знает какой имено обькт нужно созвонится и возвращает его нам
+
+new Student(); // НЕ РОБИМО!
+
+Звертаємось до фабрики, фабриці повідомляємо, що нам потрібно, фабрика уже буде робити нам екземпляри потрібного класу (new Student())
+
+*/
+
+// Абстрактный клас или интерфейс
+class Animal { 
+    constructor(nickname){
+        this.nickname = nickname
+    }
+
+    makeSound(){ // абстрактный метод
+
+    }
+}
+
+// Конкретный клас для собаки
+
+class Dog extends Animal{
+    constructor(nickname){
+        super(nickname);
+    }
+
+    makeSound(){ // Виртуальный метод
+        console.log('Gav-Gav');
+    }
+}
+
+// конкретный клас для кота
+class Cat extends Animal{
+    constructor(nickname){
+        super(nickname)
+    }
+
+    makeSound(){ // Виртуальный метод
+        console.log('Meow-Meow');
+    }
+}
+
+// Фабричный клас который создает обькты
+class AnimalFactory {
+    static createAnimal(type,nickname){
+        switch(type){
+            case 'dog': return new Dog(nickname);
+            case 'cat': return new Cat(nickname);
+            default: throw new Error(`Неизветсный тип животного: ${type}`)
+        }
+    }
+}
+
+
+// Использование фабрики для создания обьктов
+
+
+// Создать обькт собаки
+
+const dog = AnimalFactory.createAnimal('dog', 'Tuzick');
+
+// Создать обькт кота
+const cat = AnimalFactory.createAnimal('cat','Murzik')
