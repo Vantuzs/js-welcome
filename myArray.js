@@ -81,6 +81,13 @@
       }
     }
 
+    map(callback){
+      const arr = new MyArray();
+      for(let i = 0; i < this.length; i++) {
+        arr.push(callback(this[i], i, this))
+      }
+      return arr;
+    }
   }
 
   const a = new MyArray()
@@ -88,3 +95,7 @@
   a.forEach((s) => {
     console.log( s**2);
   });
+  a.push(2,3,4,5)
+  const v = a.map((s) => s**2);
+
+  console.log(v);
