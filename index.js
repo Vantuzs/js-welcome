@@ -833,4 +833,26 @@ function translater(str,vocalbuary){
     return translatedArray.join(' ');
 }
 
-console.log(translater('       Cat eat dog        ', vocalbuary));
+// console.log(translater('       Cat eat dog        ', vocalbuary));
+
+
+
+
+
+// Задача: сохранить расписание занятий, используя дни недели как ключи, а значения будут списки занятий, которые идут в определённый день
+
+const schedule = new Map();
+
+schedule.set('Понедельник', ['Математика', 'Физика']);
+schedule.set('Вторник', ['Английский', 'История']);
+schedule.set('Среда', ['Химия', 'География']);
+schedule.set('Четверг', ['Литература', 'Биология']);
+schedule.set('Пятница', ['Информатика', 'Физкультура']);
+// Получения расписания занятий для опеределённого дня
+console.log(schedule.get('Понедельник'))
+
+// Проверка, есть ли расписание для определённого дня
+console.log(schedule.has('Среда'));
+
+// Получения количества дней занятий в расписании
+console.log(schedule.size);
