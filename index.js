@@ -852,7 +852,41 @@ schedule.set('Пятница', ['Информатика', 'Физкультур�
 console.log(schedule.get('Понедельник'))
 
 // Проверка, есть ли расписание для определённого дня
-console.log(schedule.has('Среда'));
+console.log(schedule.has('Ce,,j=='));
 
 // Получения количества дней занятий в расписании
 console.log(schedule.size);
+
+
+
+
+function pushMasage(string,user,id){
+    user.get(id).push(string)
+}
+
+
+
+
+const user1 = {
+    firstName: 'Alex',
+    lastName: 'Doe',
+    id: 1
+}
+
+
+const user2 = {
+    firstName: 'John',
+    lastName: 'Doe',
+    id: 2
+}
+
+const johnMessages = ['hello','How are you?','Lalaalal'];
+const alexMassages = ['hi!','I`m fine'];
+
+
+const users = new Map();
+
+users.set(user1.id,alexMassages);
+users.set(user2.id,johnMessages);
+
+console.log(users);
