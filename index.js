@@ -939,8 +939,8 @@ set.add('hello');
 
 // Set.protoype.has - перевіряє наявність елементу у множині
 
-console.log(set.has(1)); // true
-console.log(set.has(12)); // false
+// console.log(set.has(1)); // true
+// console.log(set.has(12)); // false
 
 
 // Set.prototype.delete - видаляє елемент з множини
@@ -957,3 +957,23 @@ valuesIterator.next().value; // 4
 valuesIterator.next().value; // undefined, done: true
 
 const arrayFromSet = [...set.values()];
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* 
+Задание 1
+
+Дано масив: [2,3,3,5,6,77,77,5,1,1,12,12,13]
+Вернуть масив без повторений
+
+*/
+// var1
+const set2 = new Set([2,3,3,5,6,77,77,5,1,1,12,12,13]);
+// const arraySet = [...set2.values()];
+
+
+// var1
+
+const arrWithoutDoubles = [...new Set([2,3,3,5,6,77,77,5,1,1,12,12,13]).values()]
+
