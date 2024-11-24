@@ -849,78 +849,111 @@ schedule.set('Среда', ['Химия', 'География']);
 schedule.set('Четверг', ['Литература', 'Биология']);
 schedule.set('Пятница', ['Информатика', 'Физкультура']);
 // Получения расписания занятий для опеределённого дня
-console.log(schedule.get('Понедельник'))
+// console.log(schedule.get('Понедельник'))
 
-// Проверка, есть ли расписание для определённого дня
-console.log(schedule.has('Ce,,j=='));
+// // Проверка, есть ли расписание для определённого дня
+// console.log(schedule.has('Ce,,j=='));
 
-// Получения количества дней занятий в расписании
-console.log(schedule.size);
-
-
-
-
-new Map(); // <-- [[key1, value1], [key2, value2], [key3, value3]];
-
-// Map.prototype.entries - метод, який повертає ітератор. Ітератор повертає пари ключ-значення для кожного елемента
-
-const map1 = new Map([['key1', 'value1'], ['key2', 'value2']]);
-
-const entriesIterator = map1.entries();
-
-entriesIterator.next().value; // ['key1', 'value1']
-entriesIterator.next().value; // ['key2', 'value2']
-entriesIterator.next().value; // value: undefined, done: true
-
-
-// Map.prototype.keys - метод, який повертає ітератор з усіма ключами з об'єкта Map
-
-const keysIterator = map1.keys();
-
-keysIterator.next().value; // 'key1'
-keysIterator.next().value; // 'key2'
-keysIterator.next().value; // undefined, done: true
-
-// Map.prototype.values - метод, який повертає ітератор з усіма значеннями ключей з об'єкта Map
-
-const valuesIterator = map1.values();
-
-valuesIterator.next().value; // 'value1'
-valuesIterator.next().value; // 'value2'
-valuesIterator.next().value; // undefined, done: true
+// // Получения количества дней занятий в расписании
+// console.log(schedule.size);
 
 
 
-// Map.prototype.forEach - використовується для ітерації (перебору) всіх елементів у Map і виклику певної функції (callback) для кожного елементу
 
-// Задача: вивести на консоль мапу
+// new Map(); // <-- [[key1, value1], [key2, value2], [key3, value3]];
 
-map1.forEach((value, key, map) => {
-  console.log(`${key} - ${value}`);
-});
+// // Map.prototype.entries - метод, який повертає ітератор. Ітератор повертає пари ключ-значення для кожного елемента
 
+// const map1 = new Map([['key1', 'value1'], ['key2', 'value2']]);
 
+// const entriesIterator = map1.entries();
 
-// Map.prototype.delete - використовується для видалення пари ключ-значення з об'єкта Map відповідно до якогось ключа
-//map1.delete('key1');
-
-console.log(map1.has('key1')); // false
-console.log(map1.get('key1')); // undefined
+// entriesIterator.next().value; // ['key1', 'value1']
+// entriesIterator.next().value; // ['key2', 'value2']
+// entriesIterator.next().value; // value: undefined, done: true
 
 
-// Map.prototype.clear - використовується для повного очищення об'єкта Map, видаляючи всі пари ключ: значення, які знаходяться там
-//map1.clear();
+// // Map.prototype.keys - метод, який повертає ітератор з усіма ключами з об'єкта Map
 
-console.log(map1.size); // 0
+// const keysIterator = map1.keys();
+
+// keysIterator.next().value; // 'key1'
+// keysIterator.next().value; // 'key2'
+// keysIterator.next().value; // undefined, done: true
+
+// // Map.prototype.values - метод, який повертає ітератор з усіма значеннями ключей з об'єкта Map
+
+// const valuesIterator = map1.values();
+
+// valuesIterator.next().value; // 'value1'
+// valuesIterator.next().value; // 'value2'
+// valuesIterator.next().value; // undefined, done: true
 
 
 
-// Задача: вивести на консоль мапу
+// // Map.prototype.forEach - використовується для ітерації (перебору) всіх елементів у Map і виклику певної функції (callback) для кожного елементу
 
-console.log(...map1);
-console.log(...map1.keys());
-console.log(...map1.values());
+// // Задача: вивести на консоль мапу
+
+// map1.forEach((value, key, map) => {
+//   console.log(`${key} - ${value}`);
+// });
+
+
+
+// // Map.prototype.delete - використовується для видалення пари ключ-значення з об'єкта Map відповідно до якогось ключа
+// //map1.delete('key1');
+
+// console.log(map1.has('key1')); // false
+// console.log(map1.get('key1')); // undefined
+
+
+// // Map.prototype.clear - використовується для повного очищення об'єкта Map, видаляючи всі пари ключ: значення, які знаходяться там
+// //map1.clear();
+
+// console.log(map1.size); // 0
+
+
+
+// // Задача: вивести на консоль мапу
+
+// console.log(...map1);
+// console.log(...map1.keys());
+// console.log(...map1.values());
 
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Set - множина (множество) набір унікальних значень
+
+
+const set = new Set();
+
+// Set.prototype.add - додає новий елемент із заданним значенням у кінець об'єкта Set
+
+set.add(1);
+set.add(4);
+set.add('hello');
+
+
+// Set.protoype.has - перевіряє наявність елементу у множині
+
+console.log(set.has(1)); // true
+console.log(set.has(12)); // false
+
+
+// Set.prototype.delete - видаляє елемент з множини
+
+set.delete('hello');
+
+
+// Set.prototype.values - використовується для отримання ітератора, який повертає нам всі значення з об'єкта Set
+
+const valuesIterator = set.values();
+
+valuesIterator.next().value; // 1
+valuesIterator.next().value; // 4
+valuesIterator.next().value; // undefined, done: true
+
+const arrayFromSet = [...set.values()];
