@@ -1044,9 +1044,124 @@ const monitor = {
 
 const {sizes: {height: {value: heightValue, scale: scaleHeight}, widht: {value: widhtValue, scale: scaleWidht}}} = monitor
 
-console.log(heightValue);
-console.log(widhtValue);
-console.log(scaleHeight);
-console.log(scaleWidht);
+// console.log(heightValue);
+// console.log(widhtValue);
+// console.log(scaleHeight);
+// console.log(scaleWidht);
 
 const {color,brightness,resolution, ...restOfMonitor} = monitor
+
+
+// У нас есть обькт юзера
+
+// const user = {
+//     name:'John',
+//     age: 30,
+//     address: {
+//         city:'Kyiv',
+//         country: 'Ukraine'
+//     },
+//     contacts: {
+//         email: 'john@gmail.com',
+//         phone: '+3809944875717'
+//     }
+// }
+
+// Задача: с использованием деструктуризации получить name, city email и phone
+
+// const {name: userName, address: {city}, contacts: {email,phone}} = user
+
+// console.log(userName,city,email,phone);
+
+
+
+/* 
+
+Существует 3 вида деструктуризации в JS:
++ 1. Деструктуризация обьктов
++ 2. Деструктуризация входных параметров
++ 3. Деструктуризация масивов
+
+*/
+
+function getFullName({firstName, lastName,...restObject}){ // все другое кроме firstName, lastName игнорируется
+    console.log(restObject);
+    return `${firstName} ${lastName}`
+}
+
+const user3 = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 42,
+    geolocation: '42.2232154321 56.3213214521',
+    browser: 'Chrome'
+}
+
+console.log(getFullName(user3));
+
+
+
+
+
+
+
+
+
+
+
+const arr = [1,2,3,4,5,6];
+// const firstElement = arr[0]
+
+const [firstElement, secondElement, ...restOfArr] = arr;
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// примеры с видоса 046 1:45:00
+
+
+
+
+
+
+
+
+// const user2 = {
+//     name:'John',
+//     age: 30,
+//     address: {
+//         city:'Kyiv',
+//         country: 'Ukraine'
+//     },
+//     contacts: [
+//         {email: 'john@gmail.com'},
+//         {phones: ['+3809944875717', '+380554113443', '+380969949292']}
+//     ]
+// }
+
+// // const {contacts: {phones}}= user2
+
+// // const [firstNum,twoNums,threeNums] = phones
+
+
+// // const {contacts: {phones: [firstNum,twoNums,threeNums]}}= user2
+
+
+
+
+
+// const {contacts: [emailObject, phonesArray] } = user2
+
+// // const {email: email}= emailObject
+// // const {phones: [firstNum,twoNums,threeNum]} = phonesArray
+
+// console.log(email);
+// console.log(firstNum, twoNums);
+
