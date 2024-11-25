@@ -1002,4 +1002,51 @@ function returnArr(arr1,arr2){
     
 }
 
-console.log(returnArr(arr1,arr2))
+// console.log(returnArr(arr1,arr2))
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+const monitor = {
+    sizes: {
+        height: {
+            value:30,
+            scale: 'cm // 1'
+        },
+        widht: {
+            value: 50,
+            scale: 'cm // 2'
+        }
+    },
+        brightness: 750,
+        refresh: {
+            value: 144,
+            scale: 'Ggrc',
+        },
+        color: 'black',
+        resolution: '4K'
+    
+}
+
+// const height = monitor.sizes.height.value;
+
+// const {resolution,color: monitorColor} = monitor
+
+// console.log(resolution);
+// console.log(monitorColor);
+
+
+// Задача: вытянуть value для высоты и ширины монитора
+
+const {sizes: {height: {value: heightValue, scale: scaleHeight}, widht: {value: widhtValue, scale: scaleWidht}}} = monitor
+
+console.log(heightValue);
+console.log(widhtValue);
+console.log(scaleHeight);
+console.log(scaleWidht);
+
+const {color,brightness,resolution, ...restOfMonitor} = monitor
